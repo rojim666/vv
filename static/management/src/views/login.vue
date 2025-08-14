@@ -1,43 +1,50 @@
 <template>
-    <div class="_main-container">
-        <MainHeader/>
+    <div class="_main-container" :class="{ 'mobile-view': isMobile }">
+        <MainHeader :is-mobile="isMobile"/>
         <div class="main-content">
-            <div class="left-box">
-                <!-- 使用渐变背景替代缺失的SVG文件 -->
+            <!-- 移动端简化的左侧区域 -->
+            <div class="left-box" v-if="!isMobile || !isLoginFormVisible">
                 <div class="cover-gradient"></div>
                 <div class="web-logo-title-box">
                     <div class="web-logo-title">{{ company.login_page_title || '百分之二CRM管理系统' }}</div>
                     <div class="web-logo-info">{{ company.login_page_description || '助力企业客户沟通合规管控和质量提升' }}</div>
+                    <!-- 移动端显示登录按钮 -->
+                    <div class="mobile-login-trigger" v-if="isMobile" @click="showLoginForm">
+                        <button class="mobile-login-btn">开始登录</button>
+                    </div>
                 </div>
             </div>
-            <div class="right-box" v-if="isWxLogin">
-                <div class="right-icon-box">
+            
+            <!-- 移动端全屏登录表单 -->
+            <div class="right-box" v-if="!isMobile || isLoginFormVisible" :class="{ 'mobile-fullscreen': isMobile }">
+                <!-- 移动端返回按钮 -->
+                <div class="mobile-back-btn" v-if="isMobile" @click="hideLoginForm">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    返回
+                </div>
+                
+                <div class="right-icon-box" v-if="isWxLogin">
                     <div class="login-tip-top">
                         使用密码登录
                         <img class="login-tip-top-icon" src="@/assets/svg/login-tips-triangle.svg" />
                     </div>
                     <img class="right-check" src="@/assets/user-login.svg" @click="onChangeLogin('account')" />
                 </div>
-                <div id="ww_login"></div>
-            </div>
-            <div class="right-box" v-else>
-                <div class="right-icon-box">
+                <div id="ww_login" v-if="isWxLogin"></div>
+                
+                <div class="right-icon-box" v-else>
                     <div class="login-tip-top">
                         扫码登录更便捷
                         <img class="login-tip-top-icon" src="@/assets/svg/login-tips-triangle.svg" />
                     </div>
                     <img class="right-check" src="@/assets/wx-login.svg" @click="onChangeLogin('wx')" />
                 </div>
-                <div class="sign-in">
-                    <!-- Sign In Form -->
+                
+                <div class="sign-in" v-if="!isWxLogin">
                     <h2 class="login-title">密码登录</h2>
-                    <a-form
-                        class="login-form"
-                        :model="formState"
-                        name="basic"
-                        autocomplete="off"
-                        @finish="onFinish"
-                    >
+                    <a-form class="login-form" :model="formState" name="basic" autocomplete="off" @finish="onFinish">
                         <a-form-item
                             name="username"
                             class="usernames"
@@ -66,11 +73,10 @@
                             <div class="login-tip">暂无账号？可扫码登录后设置</div>
                         </a-form-item>
                     </a-form>
-                    <!-- / Sign In Form -->
                 </div>
             </div>
         </div>
-        <MainFooter :copyright="company.copyright" />
+        <MainFooter :copyright="company.copyright" v-if="!isMobile || !isLoginFormVisible" />
     </div>
 </template>
 
@@ -236,7 +242,7 @@ const loginAfterHandle = async token => {
 }
 
 ._main-container {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ffffff; // 修改为白色背景
     min-height: 100vh;
     padding: 24px;
     display: flex;
@@ -504,33 +510,462 @@ const loginAfterHandle = async token => {
 
         .left-box {
             width: 100%;
-            height: 200px;
+            height: 250px;
 
             .cover-gradient {
                 border-radius: 20px 20px 0 0;
+            }
+            
+            .web-logo-title-box {
+                .web-logo-title {
+                    font-size: 24px;
+                }
+                
+                .web-logo-info {
+                    font-size: 14px;
+                }
             }
         }
 
         .right-box {
             padding: 40px 20px;
+            
+            .sign-in {
+                .login-title {
+                    font-size: 24px;
+                }
+            }
         }
     }
 }
 
 @media (max-width: 768px) {
-    ._main-container {
-        padding: 16px;
+    ._main-container:not(.mobile-view) {
+        padding: 12px;
 
         .main-content {
+            .left-box {
+                height: 200px;
+                
+                .web-logo-title-box {
+                    .web-logo-title {
+                        font-size: 20px;
+                    }
+                    
+                    .web-logo-info {
+                        font-size: 13px;
+                    }
+                }
+            }
+            
             .right-box {
                 padding: 30px 16px;
+
+                .right-icon-box {
+                    right: 16px;
+                    top: 16px;
+                    
+                    .login-tip-top {
+                        font-size: 12px;
+                        padding: 6px 12px;
+                    }
+                    
+                    .right-check {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
 
                 .sign-in {
                     max-width: 100%;
 
                     .login-title {
-                        font-size: 24px;
+                        font-size: 22px;
                         margin-bottom: 32px;
+                    }
+                    
+                    .login-item {
+                        height: 50px;
+                        font-size: 15px;
+                    }
+                    
+                    .login-btn {
+                        height: 50px;
+                        font-size: 16px;
+                    }
+                }
+                
+                #ww_login {
+                    width: 250px;
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+// 超小屏幕优化
+@media (max-width: 480px) {
+    ._main-container:not(.mobile-view) {
+        padding: 8px;
+        
+        .main-content {
+            .left-box {
+                height: 160px;
+                
+                .web-logo-title-box {
+                    padding: 0 20px;
+                    
+                    .web-logo-title {
+                        font-size: 18px;
+                    }
+                    
+                    .web-logo-info {
+                        font-size: 12px;
+                    }
+                }
+            }
+            
+            .right-box {
+                padding: 20px 12px;
+                
+                .sign-in {
+                    .login-title {
+                        font-size: 20px;
+                        margin-bottom: 24px;
+                    }
+                    
+                    .login-item {
+                        height: 48px;
+                        padding: 12px 14px;
+                    }
+                    
+                    .login-btn {
+                        height: 48px;
+                    }
+                }
+                
+                #ww_login {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+        }
+    }
+}
+
+// 横屏模式优化
+@media (max-height: 600px) and (orientation: landscape) {
+    ._main-container:not(.mobile-view) {
+        .main-content {
+            .left-box {
+                height: 120px;
+                
+                .web-logo-title-box {
+                    .web-logo-title {
+                        font-size: 16px;
+                    }
+                    
+                    .web-logo-info {
+                        font-size: 11px;
+                    }
+                }
+            }
+            
+            .right-box {
+                padding: 20px;
+                
+                .sign-in {
+                    .login-title {
+                        font-size: 18px;
+                        margin-bottom: 16px;
+                    }
+                    
+                    .login-item {
+                        height: 40px;
+                        margin-bottom: 12px;
+                    }
+                    
+                    .login-btn {
+                        height: 40px;
+                        margin-top: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 移动端专用样式
+.mobile-view {
+    .main-content {
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+        
+        .left-box {
+            .mobile-login-trigger {
+                margin-top: 40px;
+                
+                .mobile-login-btn {
+                    padding: 16px 32px;
+                    background: rgba(255, 255, 255, 0.2);
+                    border: 2px solid rgba(255, 255, 255, 0.8);
+                    border-radius: 25px;
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                    
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+        
+        .right-box.mobile-fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1000;
+            background: #fafbfc;
+            border-radius: 0;
+            
+            .mobile-back-btn {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: #666;
+                font-size: 16px;
+                cursor: pointer;
+                z-index: 10;
+                
+                &:hover {
+                    color: #1890ff;
+                }
+            }
+            
+            .sign-in {
+                padding-top: 80px;
+                
+                .login-title {
+                    font-size: 32px;
+                    margin-bottom: 60px;
+                }
+                
+                .login-item {
+                    height: 56px;
+                    font-size: 16px;
+                    margin-bottom: 24px;
+                }
+                
+                .login-btn {
+                    height: 56px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+// 增强的响应式设计
+@media (max-width: 1024px) {
+    ._main-container:not(.mobile-view) .main-content {
+        width: 90%;
+        max-width: 800px;
+        height: auto;
+        flex-direction: column;
+
+        .left-box {
+            width: 100%;
+            height: 250px;
+
+            .cover-gradient {
+                border-radius: 20px 20px 0 0;
+            }
+            
+            .web-logo-title-box {
+                .web-logo-title {
+                    font-size: 24px;
+                }
+                
+                .web-logo-info {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .right-box {
+            padding: 40px 20px;
+            
+            .sign-in {
+                .login-title {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    ._main-container:not(.mobile-view) {
+        padding: 12px;
+
+        .main-content {
+            .left-box {
+                height: 200px;
+                
+                .web-logo-title-box {
+                    .web-logo-title {
+                        font-size: 20px;
+                    }
+                    
+                    .web-logo-info {
+                        font-size: 13px;
+                    }
+                }
+            }
+            
+            .right-box {
+                padding: 30px 16px;
+
+                .right-icon-box {
+                    right: 16px;
+                    top: 16px;
+                    
+                    .login-tip-top {
+                        font-size: 12px;
+                        padding: 6px 12px;
+                    }
+                    
+                    .right-check {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+
+                .sign-in {
+                    max-width: 100%;
+
+                    .login-title {
+                        font-size: 22px;
+                        margin-bottom: 32px;
+                    }
+                    
+                    .login-item {
+                        height: 50px;
+                        font-size: 15px;
+                    }
+                    
+                    .login-btn {
+                        height: 50px;
+                        font-size: 16px;
+                    }
+                }
+                
+                #ww_login {
+                    width: 250px;
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+// 超小屏幕优化
+@media (max-width: 480px) {
+    ._main-container:not(.mobile-view) {
+        padding: 8px;
+        
+        .main-content {
+            .left-box {
+                height: 160px;
+                
+                .web-logo-title-box {
+                    padding: 0 20px;
+                    
+                    .web-logo-title {
+                        font-size: 18px;
+                    }
+                    
+                    .web-logo-info {
+                        font-size: 12px;
+                    }
+                }
+            }
+            
+            .right-box {
+                padding: 20px 12px;
+                
+                .sign-in {
+                    .login-title {
+                        font-size: 20px;
+                        margin-bottom: 24px;
+                    }
+                    
+                    .login-item {
+                        height: 48px;
+                        padding: 12px 14px;
+                    }
+                    
+                    .login-btn {
+                        height: 48px;
+                    }
+                }
+                
+                #ww_login {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+        }
+    }
+}
+
+// 横屏模式优化
+@media (max-height: 600px) and (orientation: landscape) {
+    ._main-container:not(.mobile-view) {
+        .main-content {
+            .left-box {
+                height: 120px;
+                
+                .web-logo-title-box {
+                    .web-logo-title {
+                        font-size: 16px;
+                    }
+                    
+                    .web-logo-info {
+                        font-size: 11px;
+                    }
+                }
+            }
+            
+            .right-box {
+                padding: 20px;
+                
+                .sign-in {
+                    .login-title {
+                        font-size: 18px;
+                        margin-bottom: 16px;
+                    }
+                    
+                    .login-item {
+                        height: 40px;
+                        margin-bottom: 12px;
+                    }
+                    
+                    .login-btn {
+                        height: 40px;
+                        margin-top: 4px;
                     }
                 }
             }
