@@ -1,0 +1,84 @@
+{
+  "name": "zmwk_session_archive",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build:modules": "npm-run-all --parallel build:main build:custom_brand build:user_permission build:keywords_tagging build:hint_keywords build:timeout_reply_single build:timeout_reply_group build:chat_statistic_group build:archive_staff",
+    "build:main": "cross-env VUE_APP_MODULE=main vue-cli-service build",
+    "build:custom_brand": "cross-env VUE_APP_MODULE=custom_brand vue-cli-service build",
+    "build:user_permission": "cross-env VUE_APP_MODULE=user_permission vue-cli-service build",
+    "build:keywords_tagging": "cross-env VUE_APP_MODULE=keywords_tagging vue-cli-service build",
+    "build:hint_keywords": "cross-env VUE_APP_MODULE=hint_keywords vue-cli-service build",
+    "build:timeout_reply_single": "cross-env VUE_APP_MODULE=timeout_reply_single vue-cli-service build",
+    "build:timeout_reply_group": "cross-env VUE_APP_MODULE=timeout_reply_group vue-cli-service build",
+    "build:chat_statistic_group": "cross-env VUE_APP_MODULE=chat_statistic_group vue-cli-service build",
+    "build:chat_statistic_single": "cross-env VUE_APP_MODULE=chat_statistic_single vue-cli-service build",
+    "build:archive_staff": "cross-env VUE_APP_MODULE=archive_staff vue-cli-service build"
+  },
+  "dependencies": {
+    "@videojs-player/vue": "^1.0.0",
+    "ant-design-vue": "^4.2.5",
+    "axios": "^1.7.7",
+    "benz-amr-recorder": "^1.1.5",
+    "core-js": "^3.8.3",
+    "dayjs": "^1.11.13",
+    "deploy": "^1.0.3",
+    "jwt-decode": "^4.0.0",
+    "lodash": "^4.17.21",
+    "qs": "^6.13.0",
+    "run": "^1.5.0",
+    "swiper": "^8.4.7",
+    "v-viewer": "^3.0.21",
+    "vant": "^4.9.9",
+    "video-player": "^0.0.1",
+    "video.js": "~7.20.1",
+    "viewerjs": "^1.11.6",
+    "vue": "^3.2.13",
+    "vue-awesome-swiper": "^5.0.1",
+    "vue-clipboard3": "^2.0.0",
+    "vue-router": "^4.0.3",
+    "vuex": "^4.0.0",
+    "vuex-persistedstate": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "less": "^4.0.0",
+    "less-loader": "^8.0.0",
+    "npm-run-all": "^4.1.5",
+    "svg-sprite-loader": "^6.0.11",
+    "svgo-loader": "^4.0.0",
+    "vitepress": "^1.5.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

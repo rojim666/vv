@@ -1,0 +1,63 @@
+FROM php:8.2.27-cli-bookworm
+
+# 安装常用扩展
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    procps \
+    vim \
+    tzdata \
+    unzip \
+    locales \
+    curl \
+    openssh-server \
+    git \
+    libpq-dev \
+    libzip-dev \
+    libpng-dev \
+    libmagickwand-dev \
+    zlib1g-dev \
+    iputils-ping \
+    && sed -i '/zh_CN.UTF-8/s/^# //g' /etc/locale.gen \
+    && locale-gen \
+    && update-locale LANG=zh_CN.UTF-8 LC_ALL=zh_CN.UTF-8 \
+    && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && dpkg-reconfigure -f noninteractive tzdata \
+    && docker-php-ext-install pdo_pgsql bcmath gd zip sockets pcntl \
+    && pecl install igbinary \
+    && pecl install msgpack \
+    && pecl install imagick \
+    && docker-php-ext-enable igbinary \
+    && docker-php-ext-enable msgpack \
+    && docker-php-ext-enable imagick \
+    && docker-php-ext-enable pcntl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /tmp/pear \
+    && docker-php-source delete
+
+# 设置语言环境变量
+ENV LANG=zh_CN.UTF-8 \
+    LANGUAGE=zh_CN:zh \
+    LC_ALL=zh_CN.UTF-8
+
+# minio客户端
+COPY docker/main/mc /usr/local/bin/mc
+RUN chmod +x /usr/local/bin/mc
+
+# 添加自定义加密扩展
+COPY docker/main/edl.so /usr/local/lib/php/extensions/no-debug-non-zts-20220829/
+RUN docker-php-ext-enable edl
+
+# 配置SSH
+RUN mkdir -p /var/run/sshd && \
+    echo 'root:root' | chpasswd && \
+    sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    echo "PATH=${PATH}" > /etc/profile.d/environment.sh && \
+    echo 'cd /var/www' >> /root/.bashrc
+
+# 配置git
+RUN git config --global core.editor "vim" && \
+    git config --global pull.rebase false && \
+    git config --global credential.helper store
+
+# 工作目录
+WORKDIR /var/www/

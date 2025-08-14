@@ -1,0 +1,110 @@
+volumes:
+  pg_data:
+    driver: local
+  redis_data:
+    driver: local
+  minio_data:
+    driver: local
+  nats_data:
+    driver: local
+  main_certs_data:
+    driver: local
+  main_runtime_data:
+    driver: local
+
+services:
+  db:
+    image: registry.cn-hangzhou.aliyuncs.com/zhimaxkf/qiweidoc_db:latest
+    restart: always
+    shm_size: 1024mb
+    command: "postgres -c 'config_file=/etc/postgresql/postgresql.conf'"
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      TZ: Asia/Shanghai
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - 127.0.0.1:${EXTERNAL_DB_PORT:-5432}:5432
+
+  redis:
+    image: registry.cn-hangzhou.aliyuncs.com/zhimaxkf/qiweidoc_redis:latest
+    command: [ "redis-server", "/etc/redis/redis.conf" ]
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - redis_data:/data
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+
+  minio:
+    image: registry.cn-hangzhou.aliyuncs.com/zhimaxkf/qiweidoc_minio:latest
+    command: "server /data"
+    environment:
+      TZ: Asia/Shanghai
+    restart: always
+    volumes:
+      - minio_data:/data
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  nats:
+    image: registry.cn-hangzhou.aliyuncs.com/zhimaxkf/qiweidoc_nats:latest
+    command: "-js -c /etc/nats/nats-server.conf"
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - nats_data:/data/jetstream
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 128M
+
+  wxfinance:
+    image: registry.cn-hangzhou.aliyuncs.com/zhimaxkf/qiweidoc_wxfinance:latest
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+
+  httpbatch:
+    image: registry.cn-hangzhou.aliyuncs.com/zhimaxkf/qiweidoc_httpbatch:latest
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    depends_on:
+      - nats
+
+  main:
+    image: registry.cn-hangzhou.aliyuncs.com/zhimaxkf/qiweidoc_main_prod:latest
+    restart: always
+    logging:
+      options:
+        mode: non-blocking
+        max-size: "20m"
+        max-file: "10"
+    tty: true
+    depends_on:
+      - minio
+      - nats
+      - redis
+    volumes:
+      - ../:/var/www/
+      - main_certs_data:/etc/letsencrypt
+      - main_runtime_data:/var/www/php/runtime
+    ports:
+      - ${EXTERNAL_HTTP_PORT:-80}:8080
+      - ${EXTERNAL_HTTPS_PORT:-443}:443
+    environment:
+      - ACME_DOMAINS=${ACME_DOMAINS}
+      - ACME_EMAIL=${ACME_EMAIL}

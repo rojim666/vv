@@ -1,0 +1,8 @@
+.env
+.git
+node_modules
+*.log
+*.bin
+php/runtime/debug/*
+php/runtime/logs/*
+php/runtime/cache/*

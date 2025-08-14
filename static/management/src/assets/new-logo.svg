@@ -1,0 +1,11 @@
+<svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 现代化的几何图形logo -->
+  <rect x="0" y="8" width="4" height="16" rx="2" fill="#10B981"/>
+  <rect x="6" y="4" width="4" height="24" rx="2" fill="#059669"/>
+  <rect x="12" y="0" width="4" height="32" rx="2" fill="#10B981"/>
+  <rect x="18" y="6" width="4" height="20" rx="2" fill="#059669"/>
+  
+  <!-- 文字部分 -->
+  <text x="30" y="20" font-family="PingFang SC, sans-serif" font-size="14" font-weight="600" fill="#1F2937">智慧CRM</text>
+  <text x="30" y="28" font-family="PingFang SC, sans-serif" font-size="8" font-weight="400" fill="#6B7280">SMART MANAGEMENT</text>
+</svg>
