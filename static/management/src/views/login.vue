@@ -3,7 +3,8 @@
         <MainHeader/>
         <div class="main-content">
             <div class="left-box">
-                <img src="@/assets/login-cover.svg" class="cover"/>
+                <!-- 使用渐变背景替代缺失的SVG文件 -->
+                <div class="cover-gradient"></div>
                 <div class="web-logo-title-box">
                     <div class="web-logo-title">{{ company.login_page_title || '百分之二CRM管理系统' }}</div>
                     <div class="web-logo-info">{{ company.login_page_description || '助力企业客户沟通合规管控和质量提升' }}</div>
@@ -233,8 +234,9 @@ const loginAfterHandle = async token => {
     background: none;
     box-shadow: none;
 }
+
 ._main-container {
-    background: linear-gradient(254deg, #F6F9FE 6.01%, #E5EEFF 62.87%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     padding: 24px;
     display: flex;
@@ -245,52 +247,73 @@ const loginAfterHandle = async token => {
     .main-content {
         width: 960px;
         height: 565px;
-        border-radius: 16px;
+        border-radius: 20px;
         background: #FFF;
-        box-shadow: 0 4px 32px 0 #0000001f;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         display: flex;
+        overflow: hidden;
+        transition: all 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
 
         .left-box {
             position: relative;
             width: 480px;
             flex-shrink: 0;
+            overflow: hidden;
 
-            .cover {
+            .cover-gradient {
                 width: 100%;
                 height: 100%;
-                border-radius: 16px 0 0 16px;
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                border-radius: 20px 0 0 20px;
+                position: relative;
+                
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+                    opacity: 0.3;
+                }
             }
 
             .web-logo-title-box {
-                font-family: "PingFang SC";
+                font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
                 position: absolute;
-                top: 44px;
+                top: 50%;
                 left: 50%;
-                transform: translateX(-50%);
+                transform: translate(-50%, -50%);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 8px;
+                gap: 12px;
+                z-index: 2;
+                text-align: center;
+                padding: 0 40px;
 
                 .web-logo-title {
-                    color: #262626;
-                    text-align: center;
-                    font-family: "PingFang SC";
-                    font-size: 24px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 32px;
+                    color: #ffffff;
+                    font-size: 28px;
+                    font-weight: 700;
+                    line-height: 1.3;
+                    margin-bottom: 8px;
+                    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                 }
 
                 .web-logo-info {
-                    color: #3a4559;
-                    font-family: "PingFang SC";
+                    color: rgba(255, 255, 255, 0.9);
                     font-size: 16px;
-                    font-style: normal;
                     font-weight: 400;
-                    line-height: 24px;
-                    opacity: 0.85;
+                    line-height: 1.5;
+                    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
                 }
             }
         }
@@ -301,32 +324,34 @@ const loginAfterHandle = async token => {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 40px;
+            background: #fafbfc;
 
             .right-icon-box {
                 display: flex;
                 align-items: center;
                 position: absolute;
-                right: 20px;
-                top: 20px;
+                right: 24px;
+                top: 24px;
+                z-index: 10;
             }
 
             .login-tip-top {
                 position: relative;
-                width: 142px;
-                height: 32px;
-                display: inline-flex;
-                padding: 4px 12px;
-                justify-content: center;
-                align-items: center;
-                gap: 10px;
-                border-radius: 6px;
-                background: var(--01-, #1D5EC9);
+                padding: 8px 16px;
+                border-radius: 8px;
+                background: #1890ff;
                 color: #ffffff;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 24px;
+                font-size: 13px;
+                font-weight: 500;
+                white-space: nowrap;
+                box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: #40a9ff;
+                    transform: translateY(-1px);
+                }
 
                 .login-tip-top-icon {
                     position: absolute;
@@ -338,94 +363,176 @@ const loginAfterHandle = async token => {
             }
 
             .right-check {
-                width: 60px;
+                width: 48px;
+                height: 48px;
                 cursor: pointer;
-                display: inline-block;
-                margin: 8px;
+                margin-left: 12px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                padding: 8px;
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(10px);
+
+                &:hover {
+                    background: rgba(255, 255, 255, 1);
+                    transform: scale(1.05);
+                }
             }
 
             .sign-in {
                 width: 100%;
-                max-width: 380px;
+                max-width: 360px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                font-family: "PingFang SC";
+                font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
 
                 .login-title {
                     text-align: center;
                     color: #262626;
-                    font-size: 24px;
-                    font-style: normal;
+                    font-size: 28px;
                     font-weight: 600;
-                    line-height: 32px;
-                    margin-bottom: 40px;
+                    line-height: 1.3;
+                    margin-bottom: 48px;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -16px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 40px;
+                        height: 3px;
+                        background: linear-gradient(90deg, #1890ff, #40a9ff);
+                        border-radius: 2px;
+                    }
                 }
 
                 .login-form {
                     width: 100%;
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
                 }
 
                 .login-item {
-                    display: flex;
                     width: 100%;
-                    max-width: 380px;
-                    padding: 8px 12px;
-                    height: 40px;
-                    box-sizing: border-box;
-                    align-items: center;
-                    border-radius: 6px;
-                    background: #FFF;
-                    border: 1px solid #d9d9d9;
-                    margin-bottom: 16px;
+                    height: 48px;
+                    padding: 12px 16px;
+                    border-radius: 8px;
+                    border: 2px solid #e8e8e8;
+                    background: #ffffff;
+                    font-size: 15px;
+                    transition: all 0.3s ease;
+                    margin-bottom: 20px;
+
+                    &:focus {
+                        border-color: #1890ff;
+                        box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1);
+                        outline: none;
+                    }
+
+                    &:hover {
+                        border-color: #40a9ff;
+                    }
 
                     .login-input-icon {
-                        width: 16px;
-                        color: #8C8C8C;
-                        margin-right: 8px;
+                        width: 18px;
+                        height: 18px;
+                        margin-right: 12px;
+                        opacity: 0.6;
                     }
                 }
 
                 .login-btn {
-                    height: 40px;
-                    box-sizing: border-box;
-                    display: flex;
                     width: 100%;
-                    max-width: 380px;
-                    padding: 8px 12px;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 6px;
-                    background: #1890ff;
-                    color: #fff;
+                    height: 48px;
+                    border-radius: 8px;
+                    background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
                     border: none;
+                    color: #ffffff;
+                    font-size: 16px;
+                    font-weight: 600;
                     cursor: pointer;
-                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    margin-top: 8px;
+                    box-shadow: 0 4px 15px rgba(24, 144, 255, 0.3);
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                        transform: translateY(-2px);
+                        box-shadow: 0 6px 20px rgba(24, 144, 255, 0.4);
+                    }
+
+                    &:active {
+                        transform: translateY(0);
+                    }
                 }
 
                 .login-tip {
                     text-align: center;
                     color: #8c8c8c;
                     font-size: 14px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: 22px;
-                    margin-top: 16px;
+                    margin-top: 24px;
+                    line-height: 1.5;
                 }
             }
 
-            // 微信登录区域样式
             #ww_login {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 width: 300px;
                 height: 300px;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+}
+
+// 响应式设计
+@media (max-width: 1024px) {
+    ._main-container .main-content {
+        width: 90%;
+        max-width: 800px;
+        height: auto;
+        flex-direction: column;
+
+        .left-box {
+            width: 100%;
+            height: 200px;
+
+            .cover-gradient {
+                border-radius: 20px 20px 0 0;
+            }
+        }
+
+        .right-box {
+            padding: 40px 20px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    ._main-container {
+        padding: 16px;
+
+        .main-content {
+            .right-box {
+                padding: 30px 16px;
+
+                .sign-in {
+                    max-width: 100%;
+
+                    .login-title {
+                        font-size: 24px;
+                        margin-bottom: 32px;
+                    }
+                }
             }
         }
     }
