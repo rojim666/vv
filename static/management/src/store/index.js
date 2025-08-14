@@ -25,6 +25,11 @@ const getState = () => {
             copyright: ''
         }, // 企业
         archiveStfSetting: {},
+        // 添加菜单收起状态
+        sidebarCollapsed: false,
+        // 添加设备检测状态
+        isMobile: false,
+        deviceType: 'desktop' // desktop, mobile, tablet
     }
 }
 
@@ -43,7 +48,12 @@ export default createStore({
             let archive_staff_m = _modules.find(i => i.name === 'archive_staff')
             return archive_staff_m || {}
         },
-        getArchiveStfSetting: state => state.archiveStfSetting
+        getArchiveStfSetting: state => state.archiveStfSetting,
+        // 添加获取菜单收起状态的getter
+        getSidebarCollapsed: state => state.sidebarCollapsed,
+        // 添加设备检测相关的getters
+        getIsMobile: state => state.isMobile,
+        getDeviceType: state => state.deviceType
     },
     mutations: {
         RESET_STATE(state) {
@@ -69,6 +79,13 @@ export default createStore({
                 state.document_title = info.title
                 document.title = info.title
             }
+        },
+        // 添加切换菜单收起状态的mutation
+        toggleSidebar(state) {
+            state.sidebarCollapsed = !state.sidebarCollapsed
+        },
+        setSidebarCollapsed(state, collapsed) {
+            state.sidebarCollapsed = collapsed
         }
     },
     actions: {
@@ -163,3 +180,20 @@ export default createStore({
         storage: window.localStorage, // 或者 sessionStorage
     })]
 })
+
+// 添加设备检测action
+detectDevice({commit}) {
+    const userAgent = navigator.userAgent.toLowerCase()
+    const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)
+    const isTablet = /ipad|android(?!.*mobile)/i.test(userAgent)
+    
+    let deviceType = 'desktop'
+    if (isMobile && !isTablet) {
+        deviceType = 'mobile'
+    } else if (isTablet) {
+        deviceType = 'tablet'
+    }
+    
+    commit('setDeviceType', deviceType)
+    return deviceType
+}

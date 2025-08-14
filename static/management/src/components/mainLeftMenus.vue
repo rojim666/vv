@@ -1,15 +1,13 @@
 <template>
-    <div class="_main-left-block">
+    <div class="_main-left-block" :class="{ 'collapsed': sidebarCollapsed }">
         <div class="_menu-box hide-scrollbar">
-            <!--        <div class="search-menu-box">-->
-            <!--            <a-input-search placeholder="请输入功能名称搜索"/>-->
-            <!--        </div>-->
             <a-menu
                 v-model:openKeys="state.openKeys"
                 v-model:selectedKeys="state.selectedKeys"
-                style="width: 256px"
+                :style="{ width: sidebarCollapsed ? '80px' : '256px' }"
                 :mode="state.mode"
                 :theme="state.theme"
+                :inlineCollapsed="sidebarCollapsed"
             >
                 <template v-for="menu in menus">
                     <a-sub-menu
@@ -61,6 +59,10 @@ const store = useStore()
 const route = useRoute();
 const router = useRouter();
 const loading = ref(false)
+
+// 添加菜单收起状态
+const sidebarCollapsed = computed(() => store.getters.getSidebarCollapsed)
+
 const state = reactive({
     mode: 'inline',
     theme: 'light',
@@ -258,6 +260,15 @@ onMounted(() => {
     flex-shrink: 0;
     width: 256px;
     background: #FFF;
+    transition: all 0.3s ease;
+    
+    &.collapsed {
+        width: 80px;
+        
+        ._menu-box {
+            width: 80px;
+        }
+    }
 
     ._menu-box {
         position: fixed;
@@ -267,6 +278,7 @@ onMounted(() => {
         left: 0;
         overflow-y: auto;
         background: #FFF;
+        transition: all 0.3s ease;
     }
 
     :deep(.ant-menu-root) {

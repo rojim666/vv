@@ -3,6 +3,7 @@ import store from "@/store";
 import {checkInit} from "@/api/auth-login";
 import {loginHandle, logoutClearData} from "@/utils/tools";
 import {getCookieUserInfo} from '@/utils/cookie';
+import {getDeviceInfo} from '@/utils/deviceDetection';
 
 const routes = []
 
@@ -33,6 +34,10 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+    // 设备检测
+    const deviceInfo = getDeviceInfo();
+    store.commit('setDeviceType', deviceInfo.deviceType);
+    
     if (!to.meta.ignoreLogin) {
         let login = await store.dispatch('checkLogin')
         if (to.query?.auth_token) {

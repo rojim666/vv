@@ -1,6 +1,11 @@
 <template>
     <div class="_main-header" :style="style" :class="{ 'mobile-header': isMobile }">
         <div class="logo-box">
+            <!-- 添加菜单收起按钮 -->
+            <div class="menu-toggle-btn" @click="toggleSidebar" v-if="!isMobile">
+                <MenuFoldOutlined v-if="!sidebarCollapsed" />
+                <MenuUnfoldOutlined v-if="sidebarCollapsed" />
+            </div>
             <img :src="company.logo || DEFAULT_ZH_LOGO" class="logo"/>
             <div class="system-name-box" v-if="!isMobile || !isCompactMode">
                 <div v-if="company.navigation_bar_title" class="default-system-name">{{ company.navigation_bar_title || '百分之二CRM管理系统' }}</div>
@@ -37,7 +42,7 @@
 import {computed, onMounted, ref} from 'vue';
 import {useStore} from 'vuex';
 import {Modal, message} from 'ant-design-vue';
-import {DownOutlined} from '@ant-design/icons-vue';
+import {DownOutlined, MenuFoldOutlined, MenuUnfoldOutlined} from '@ant-design/icons-vue';
 import {logoutHandle} from "@/utils/tools";
 import {getSettings} from "@/api/auth-login";
 import {DEFAULT_ZH_LOGO} from "@/constants";
@@ -66,6 +71,13 @@ const company = computed(() => store.getters.getCompany)
 const loginInfo = computed(() => {
     return store.getters.getUserInfo
 })
+// 添加菜单收起状态
+const sidebarCollapsed = computed(() => store.getters.getSidebarCollapsed)
+
+// 添加切换菜单的方法
+const toggleSidebar = () => {
+    store.commit('toggleSidebar')
+}
 
 const style = computed(() => {
     return {
@@ -125,20 +137,49 @@ onMounted(() => {
 
 <style scoped lang="less">
 ._main-header {
-    display: flex;
-    align-items: center;
     position: fixed;
-    z-index: 99;
     top: 0;
     left: 0;
-    width: 100%;
-    background: #FFFFFF;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    border-bottom: 1px solid #E5E7EB;
+    right: 0;
+    height: 52px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
     .logo-box {
         display: flex;
         align-items: center;
+        
+        // 添加菜单切换按钮样式
+        .menu-toggle-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+            
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.06);
+            }
+            
+            .anticon {
+                font-size: 16px;
+                color: #666;
+            }
+        }
+        
+        .logo {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+        }
         max-width: 365px;
         min-width: 256px;
         flex-shrink: 0;
