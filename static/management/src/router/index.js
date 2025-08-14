@@ -1,9 +1,6 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
-import store from "@/store";
-import {checkInit} from "@/api/auth-login";
-import {loginHandle, logoutClearData} from "@/utils/tools";
-import {getCookieUserInfo} from '@/utils/cookie';
 import {getDeviceInfo} from '@/utils/deviceDetection';
+import store from '@/store'
 
 const routes = []
 
@@ -33,10 +30,11 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to, from, next) => {
     // 设备检测
-    const deviceInfo = getDeviceInfo();
-    store.commit('setDeviceType', deviceInfo.deviceType);
+    const deviceInfo = getDeviceInfo()
+    store.commit('setDeviceType', deviceInfo.deviceType)
+    store.commit('setIsMobile', deviceInfo.isMobile)
     
     if (!to.meta.ignoreLogin) {
         let login = await store.dispatch('checkLogin')
@@ -72,4 +70,4 @@ router.beforeEach(async (to, from, next) => {
     next();
 });
 
-export default router
+export default router;

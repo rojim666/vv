@@ -13,6 +13,9 @@ import 'dayjs/locale/zh-cn';
 import {updateUserInfo} from "@/utils/tools";
 import {getDeviceInfo} from "@/utils/deviceDetection";
 
+// 引入移动端样式
+import '@/common/mobile.less';
+
 dayjs.locale('zh-cn');
 
 const store = useStore();
@@ -21,6 +24,7 @@ const store = useStore();
 const handleResize = () => {
     const deviceInfo = getDeviceInfo();
     store.commit('setDeviceType', deviceInfo.deviceType);
+    store.commit('setIsMobile', deviceInfo.isMobile);
 };
 
 onMounted(() => {
@@ -64,6 +68,9 @@ window.ResizeObserver = class ResizeObserver extends _ResizeObserver {
 </script>
 
 <style lang="less">
+@import "./common/common.less";
+@import "./common/mobile.less"; // 新增移动端样式
+
 body {
     background-color: #f0f2f5;
 }
@@ -78,10 +85,19 @@ body {
 @media (max-width: 768px) {
     body {
         background-color: #f5f5f5;
+        // 防止移动端缩放
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
     }
     
     #app {
         font-size: 16px; // 移动端字体稍大
+        line-height: 1.5;
+    }
+    
+    // 移动端滚动优化
+    * {
+        -webkit-overflow-scrolling: touch;
     }
 }
 
