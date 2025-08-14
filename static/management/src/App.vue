@@ -13,9 +13,6 @@ import 'dayjs/locale/zh-cn';
 import {updateUserInfo} from "@/utils/tools";
 import {getDeviceInfo} from "@/utils/deviceDetection";
 
-// 引入移动端样式
-import '@/common/mobile.less';
-
 dayjs.locale('zh-cn');
 
 const store = useStore();
@@ -24,7 +21,6 @@ const store = useStore();
 const handleResize = () => {
     const deviceInfo = getDeviceInfo();
     store.commit('setDeviceType', deviceInfo.deviceType);
-    store.commit('setIsMobile', deviceInfo.isMobile);
 };
 
 onMounted(() => {

@@ -1,6 +1,5 @@
 <template>
-    <!-- 根据设备类型选择布局 -->
-    <MainLayout v-if="!isMobile">
+    <MainLayout>
         <template #navbar>
             <a-tabs v-model:active-key="BASE_TYPE"
                     @change="mainTabChange"
@@ -21,37 +20,11 @@
             <Component v-else :is="mainPanelComponent" :defaultParams="defaultParams"/>
         </div>
     </MainLayout>
-    
-    <!-- 移动端布局 -->
-    <MobileLayout v-else>
-        <div class="mobile-session-archive">
-            <!-- 移动端标签页 -->
-            <div class="mobile-tabs">
-                <a-tabs v-model:active-key="BASE_TYPE"
-                        @change="mainTabChange"
-                        size="small">
-                    <a-tab-pane key="LOAD_BY_STAFF" tab="按员工"/>
-                    <a-tab-pane key="LOAD_BY_CUSTOMER" tab="按客户"/>
-                    <a-tab-pane key="LOAD_BY_GROUP" tab="按群聊"/>
-                    <a-tab-pane key="LOAD_BY_COLLECT" tab="收藏聊天"/>
-                </a-tabs>
-            </div>
-            
-            <!-- 移动端内容 -->
-            <div class="mobile-content">
-                <SelectTagModal/>
-                <LoadingBox v-if="loading"/>
-                <Component v-else :is="mainPanelComponent" :defaultParams="defaultParams" :mobile="true"/>
-            </div>
-        </div>
-    </MobileLayout>
 </template>
 
 <script setup>
 import {onMounted, h, ref, computed, nextTick} from 'vue';
-import {useStore} from 'vuex';
 import MainLayout from "@/components/mainLayout.vue";
-import MobileLayout from "@/components/mobileLayout.vue";
 import MainPanelLoadByStaff from "./components/mainPanelLoadByStaff.vue";
 import MainPanelLoadByCollect from "./components/mainPanelLoadByCollect.vue";
 import MainPanelLoadByCst from "./components/mainPanelLoadByCst.vue";
@@ -62,13 +35,8 @@ import {copyObj} from "@/utils/tools";
 import SelectTagModal from "@/components/select-customer-tag/selectTagModal.vue";
 import StaffPaymentTag from "@/views/sessionArchive/components/modules/staffPaymentTag.vue";
 
-const store = useStore()
 const router = useRouter()
 const route = useRoute()
-
-// 获取设备类型
-const isMobile = computed(() => store.getters.getIsMobile)
-
 const BASE_TYPE = ref('LOAD_BY_STAFF')
 const MAIN_TABS = [
     'LOAD_BY_STAFF',
@@ -157,7 +125,6 @@ const resetRouteQuery = queryParams => {
 #session-panel {
     position: relative;
     min-height: calc(100vh - 115px);
-    
     :deep(.ant-tabs-tab) {
         font-size: 12px;
     }
@@ -169,25 +136,6 @@ const resetRouteQuery = queryParams => {
     :deep(.ant-input),
     :deep(.ant-select-selection-placeholder){
         font-size: 12px;
-    }
-}
-
-// 移动端样式
-.mobile-session-archive {
-    .mobile-tabs {
-        background: #fff;
-        padding: 0 16px;
-        border-bottom: 1px solid #f0f0f0;
-        
-        :deep(.ant-tabs-tab) {
-            font-size: 14px;
-            padding: 12px 8px;
-        }
-    }
-    
-    .mobile-content {
-        padding: 16px;
-        min-height: calc(100vh - 200px);
     }
 }
 </style>

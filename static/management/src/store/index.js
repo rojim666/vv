@@ -185,9 +185,19 @@ export default createStore({
         
         // 添加设备检测action
         detectDevice({commit}) {
-            const deviceInfo = getDeviceInfo()
-            commit('setDeviceType', deviceInfo.deviceType)
-            commit('setIsMobile', deviceInfo.isMobile)
+            const userAgent = navigator.userAgent.toLowerCase()
+            const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)
+            const isTablet = /ipad|android(?!.*mobile)/i.test(userAgent)
+            
+            let deviceType = 'desktop'
+            if (isMobile && !isTablet) {
+                deviceType = 'mobile'
+            } else if (isTablet) {
+                deviceType = 'tablet'
+            }
+            
+            commit('setDeviceType', deviceType)
+            return deviceType
         }
     },
     modules: {},

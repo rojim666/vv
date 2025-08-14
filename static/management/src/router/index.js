@@ -1,6 +1,7 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
 import {getDeviceInfo} from '@/utils/deviceDetection';
 import store from '@/store'
+import {loginHandle, getCookieUserInfo, logoutClearData, checkInit} from '@/utils/tools'; // 确保导入必要的函数
 
 const routes = []
 
@@ -30,7 +31,7 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
     // 设备检测
     const deviceInfo = getDeviceInfo()
     store.commit('setDeviceType', deviceInfo.deviceType)
