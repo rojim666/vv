@@ -1,6 +1,6 @@
 <template>
     <div id="_footer" class="_main-footer normal hide">
-        <div class="copyright">{{ copyright || 'Copyright © 2021, 芝麻小事网络科技（武汉）有限公司 鄂ICP备19019997号-3' }}</div>
+        <div class="copyright">{{ copyright || '2025, 百分之二数字科技（武汉）有限公司 粤ICP备2024354761号-1' }}</div>
     </div>
 </template>
 

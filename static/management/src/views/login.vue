@@ -5,7 +5,7 @@
             <div class="left-box">
                 <img src="@/assets/login-cover.svg" class="cover"/>
                 <div class="web-logo-title-box">
-                    <div class="web-logo-title">{{ company.login_page_title || '百分之一CRM管理系统' }}</div>
+                    <div class="web-logo-title">{{ company.login_page_title || '百分之二CRM管理系统' }}</div>
                     <div class="web-logo-info">{{ company.login_page_description || '助力企业客户沟通合规管控和质量提升' }}</div>
                 </div>
             </div>
@@ -234,7 +234,7 @@ const loginAfterHandle = async token => {
     box-shadow: none;
 }
 ._main-container {
-    background: linear-gradient(135deg, #F8FAFC 0%, #E5E7EB 100%);
+    background: linear-gradient(254deg, #F6F9FE 6.01%, #E5EEFF 62.87%);
     min-height: 100vh;
     padding: 24px;
     display: flex;
@@ -245,50 +245,52 @@ const loginAfterHandle = async token => {
     .main-content {
         width: 960px;
         height: 565px;
-        border-radius: 20px;
-        background: #FFFFFF;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border-radius: 16px;
+        background: #FFF;
+        box-shadow: 0 4px 32px 0 #0000001f;
         display: flex;
-        overflow: hidden;
 
         .left-box {
             position: relative;
             width: 480px;
             flex-shrink: 0;
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
 
             .cover {
                 width: 100%;
                 height: 100%;
-                opacity: 0.1;
+                border-radius: 16px 0 0 16px;
             }
 
             .web-logo-title-box {
                 font-family: "PingFang SC";
                 position: absolute;
-                top: 50%;
+                top: 44px;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                transform: translateX(-50%);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 16px;
-                text-align: center;
+                gap: 8px;
 
                 .web-logo-title {
-                    color: #FFFFFF;
-                    font-size: 28px;
-                    font-weight: 700;
-                    line-height: 36px;
+                    color: #262626;
+                    text-align: center;
+                    font-family: "PingFang SC";
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 32px;
                 }
 
                 .web-logo-info {
-                    color: #ECFDF5;
+                    color: #3a4559;
+                    font-family: "PingFang SC";
                     font-size: 16px;
+                    font-style: normal;
                     font-weight: 400;
                     line-height: 24px;
-                    opacity: 0.9;
+                    opacity: 0.85;
                 }
             }
         }
@@ -299,76 +301,131 @@ const loginAfterHandle = async token => {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px;
+            padding: 20px;
+
+            .right-icon-box {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
 
             .login-tip-top {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                padding: 8px 16px;
-                border-radius: 8px;
-                background: #ECFDF5;
-                color: #10B981;
+                position: relative;
+                width: 142px;
+                height: 32px;
+                display: inline-flex;
+                padding: 4px 12px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 6px;
+                background: var(--01-, #1D5EC9);
+                color: #ffffff;
                 font-size: 14px;
-                font-weight: 500;
-                border: 1px solid #D1FAE5;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+
+                .login-tip-top-icon {
+                    position: absolute;
+                    width: 6px;
+                    right: -6px;
+                    top: 50%;
+                    margin-top: -6px;
+                }
+            }
+
+            .right-check {
+                width: 60px;
+                cursor: pointer;
+                display: inline-block;
+                margin: 8px;
             }
 
             .sign-in {
                 width: 100%;
                 max-width: 380px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-family: "PingFang SC";
 
                 .login-title {
                     text-align: center;
-                    color: #1F2937;
+                    color: #262626;
                     font-size: 24px;
+                    font-style: normal;
                     font-weight: 600;
                     line-height: 32px;
                     margin-bottom: 40px;
                 }
 
+                .login-form {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+
                 .login-item {
                     display: flex;
                     width: 100%;
-                    padding: 12px 16px;
-                    height: 48px;
+                    max-width: 380px;
+                    padding: 8px 12px;
+                    height: 40px;
                     box-sizing: border-box;
                     align-items: center;
-                    border-radius: 8px;
-                    background: #F9FAFB;
-                    border: 1px solid #E5E7EB;
+                    border-radius: 6px;
+                    background: #FFF;
+                    border: 1px solid #d9d9d9;
                     margin-bottom: 16px;
-                    transition: all 0.2s ease;
-
-                    &:focus-within {
-                        border-color: #10B981;
-                        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-                    }
 
                     .login-input-icon {
                         width: 16px;
-                        color: #6B7280;
-                        margin-right: 12px;
+                        color: #8C8C8C;
+                        margin-right: 8px;
                     }
                 }
 
                 .login-btn {
-                    height: 48px;
+                    height: 40px;
+                    box-sizing: border-box;
+                    display: flex;
                     width: 100%;
-                    border-radius: 8px;
-                    background: #10B981;
-                    color: #FFFFFF;
-                    font-weight: 600;
+                    max-width: 380px;
+                    padding: 8px 12px;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 6px;
+                    background: #1890ff;
+                    color: #fff;
                     border: none;
                     cursor: pointer;
-                    transition: all 0.2s ease;
-
-                    &:hover {
-                        background: #059669;
-                        transform: translateY(-1px);
-                        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
-                    }
+                    font-weight: 500;
                 }
+
+                .login-tip {
+                    text-align: center;
+                    color: #8c8c8c;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 22px;
+                    margin-top: 16px;
+                }
+            }
+
+            // 微信登录区域样式
+            #ww_login {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 300px;
+                height: 300px;
             }
         }
     }

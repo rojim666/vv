@@ -61,6 +61,14 @@
                             allow-clear/>
                     </a-form-item>
                 </template>
+                <a-form-item label="账号角色">
+                    <a-select v-model:value="storeModal.formState.role_id" placeholder="请选择账号角色">
+                        <a-select-option :value="1">员工</a-select-option>
+                        <a-select-option :value="2">沟通员</a-select-option>
+                        <a-select-option :value="3">管理员</a-select-option>
+                        <a-select-option :value="4">游客</a-select-option>
+                    </a-select>
+                </a-form-item>
                 <a-form-item label="过期时间">
                     <a-radio-group v-model:value="storeModal.formState.exp_type">
                         <a-radio :value="0">永久有效</a-radio>
@@ -151,6 +159,7 @@ const storeModal = reactive({
         account: '',
         password: '',
         verify_password: '',
+        role_id: 1, // 默认为员工角色
         exp_type: 0,
         exp_time: '',
         description: '',
@@ -259,6 +268,7 @@ function showAddAccount() {
         }
     }
     storeModal.formState.exp_type = 0
+    storeModal.formState.role_id = 1 // 默认为员工角色
 }
 
 function showEditAccount(record) {
@@ -270,6 +280,7 @@ function showEditAccount(record) {
         }
     }
     storeModal.formState.verify_password = record.password
+    storeModal.formState.role_id = record.role_id || 1 // 设置当前角色
     if (record.exp_time > -1) {
         storeModal.formState.exp_type = 1
         storeModal.formState.exp_time = dayjs(record.exp_time * 1000).format('YYYY-MM-DD HH:mm')

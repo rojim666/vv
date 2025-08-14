@@ -182,6 +182,68 @@ onMounted(() => {
                 },
             ]
             break
+        case 2:
+            // 2级权限用户 - 可以访问更多功能，但不能访问系统设置
+            menus.value = [
+                {
+                    key: 'SessionQualityInspection',
+                    title: '会话质检',
+                    icon: h(MessageOutlined),
+                    subs: [
+                        {key: 'sessionArchiveHome', title: '会话质检', route: '/sessionArchive/index'},
+                        {key: 'sessionArchiveSearch', title: '会话搜索', route: '/sessionArchive/search'}
+                    ]
+                },
+                {
+                    key: 'FunctionCenter',
+                    title: '更多功能',
+                    icon: h(AppstoreOutlined),
+                    subs: [
+                        {key: 'plugManagementHome', title: '更多功能', route: '/plug/index'},
+                    ]
+                },
+                {
+                    key: 'CustomerManagement',
+                    title: '客户管理',
+                    icon: h(TeamOutlined),
+                    subs: [
+                        {key: 'customerManagementHome', title: '客户管理', route: '/customerManagement/index'},
+                        {key: 'customerManagementTag', title: '客户标签', route: '/customerManagement/tag'}
+                    ]
+                }
+            ]
+            break
+        case 3:
+            // 3级权限用户 - 可以访问更多功能，但不能访问系统设置
+            menus.value = [
+                {
+                    key: 'SessionQualityInspection',
+                    title: '会话质检',
+                    icon: h(MessageOutlined),
+                    subs: [
+                        {key: 'sessionArchiveHome', title: '会话质检', route: '/sessionArchive/index'},
+                        {key: 'sessionArchiveSearch', title: '会话搜索', route: '/sessionArchive/search'}
+                    ]
+                },
+                {
+                    key: 'FunctionCenter',
+                    title: '更多功能',
+                    icon: h(AppstoreOutlined),
+                    subs: [
+                        {key: 'plugManagementHome', title: '更多功能', route: '/plug/index'},
+                    ]
+                },
+                {
+                    key: 'CustomerManagement',
+                    title: '客户管理',
+                    icon: h(TeamOutlined),
+                    subs: [
+                        {key: 'customerManagementHome', title: '客户管理', route: '/customerManagement/index'},
+                        {key: 'customerManagementTag', title: '客户标签', route: '/customerManagement/tag'}
+                    ]
+                }
+            ]
+            break
         case 4:
             // 游客不支持查看系统设置
             let index = menus.value.findIndex(i => i.key === 'Systemctl')

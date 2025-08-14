@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
     base: '/docs',
-    title: "百分之一CRM管理系统",
+    title: "百分之二CRM管理系统",
     description: "企微会话存档服务",
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config

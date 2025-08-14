@@ -3,10 +3,10 @@
         <div class="logo-box">
             <img :src="company.logo || DEFAULT_ZH_LOGO" class="logo"/>
             <div class="system-name-box">
-                <!-- <div class="default-system-name">百分之一CRM管理系统</div> -->
+                <!-- <div class="default-system-name">百分之二CRM管理系统</div> -->
                 <!-- <div v-if="company.navigation_bar_title" class="system-line"></div> -->
-                <div v-if="company.navigation_bar_title" class="default-system-name">{{ company.navigation_bar_title || '百分之一CRM管理系统' }}</div>
-                <div v-else class="default-system-name">百分之一CRM管理系统</div>
+                <div v-if="company.navigation_bar_title" class="default-system-name">{{ company.navigation_bar_title || '百分之二CRM管理系统' }}</div>
+                <div v-else class="default-system-name">百分之二CRM管理系统</div>
             </div>
         </div>
         <div class="right-header-nav">

@@ -5,7 +5,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 export default withMermaid(
     defineConfig({
         base: '/docs',
-        title: "百分之一CRM管理系统帮助文档",
+        title: "百分之二CRM管理系统帮助文档",
         description: "企微会话存档服务",
         themeConfig: {
             // https://vitepress.dev/reference/default-theme-config
