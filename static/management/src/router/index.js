@@ -1,7 +1,9 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
 import {getDeviceInfo} from '@/utils/deviceDetection';
 import store from '@/store'
-import {loginHandle, getCookieUserInfo, logoutClearData, checkInit} from '@/utils/tools'; // 确保导入必要的函数
+import {loginHandle, logoutClearData} from '@/utils/tools';
+import {getCookieUserInfo} from '@/utils/cookie'; // 从正确位置导入
+import {checkInit} from '@/api/auth-login'; // 从正确位置导入
 
 const routes = []
 

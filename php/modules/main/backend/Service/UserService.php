@@ -22,17 +22,17 @@ class UserService
 
         $roleList = [
             [
-                "id"=>EnumUserRoleType::NORMAL_STAFF->value,
-                "role_name"=>"普通员工"
+                "id"=>EnumUserRoleType::COPYWRITER_SPECIALIST->value,
+                "role_name"=>"文案营销专员"
             ],[
-                "id"=>EnumUserRoleType::ADMIN->value,
-                "role_name"=>"管理员"
+                "id"=>EnumUserRoleType::COMMUNICATOR->value,
+                "role_name"=>"沟通员"
             ],[
-                "id"=>EnumUserRoleType::SUPPER_ADMIN->value,
-                "role_name"=>"超级管理员"
+                "id"=>EnumUserRoleType::MANAGER->value,
+                "role_name"=>"管理者"
             ],[
-                "id"=>EnumUserRoleType::VISITOR->value,
-                "role_name"=>"游客账号"
+                "id"=>EnumUserRoleType::COPYWRITER_SUPERVISOR->value,
+                "role_name"=>"文案主管"
             ],
         ];
 
@@ -74,7 +74,7 @@ class UserService
     public static function demoUserList(CorpModel $corp, $data)
     {
 
-        $list = UserModel::query()->where(["corp_id" => $corp->get("id"), "role_id" => EnumUserRoleType::VISITOR->value])->orderBy(["created_at" => "DESC"])->paginate($data["page"] ?? 1, $data["size"] ?? 10);
+        $list = UserModel::query()->where(["corp_id" => $corp->get("id"), "role_id" => EnumUserRoleType::COPYWRITER_SPECIALIST->value])->orderBy(["created_at" => "DESC"])->paginate($data["page"] ?? 1, $data["size"] ?? 10);
 
         //员工角色列表
         $userRoleList = UserRoleModel::query()->select(["id", "role_name"])->getAll()->toArray();

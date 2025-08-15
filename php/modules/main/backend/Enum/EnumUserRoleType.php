@@ -4,9 +4,8 @@ namespace Modules\Main\Enum;
 
 enum EnumUserRoleType: int
 {
-    case NORMAL_STAFF = 1;//普通员工
-    case ADMIN = 2;//管理员
-    case SUPPER_ADMIN = 3;//超级管理员
-    case VISITOR = 4;//游客
-
+    case COPYWRITER_SPECIALIST = 1;//文案营销专员
+    case COMMUNICATOR = 2;//沟通员
+    case MANAGER = 3;//管理者
+    case COPYWRITER_SUPERVISOR = 4;//文案主管
 }

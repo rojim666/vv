@@ -236,5 +236,38 @@ class IndexController extends BaseController
         return $this->jsonResponse();
     }
 
+    /**
+ * 发送实时通知到企业微信
+ */
+public function sendWechatNotice(ServerRequestInterface $request): ResponseInterface
+{
+    $corp = $request->getAttribute(CorpModel::class);
+    $data = $request->getParsedBody();
+    
+    $toUser = $data["touser"] ?? "";
+    $message = $data["message"] ?? "";
+    
+    if (empty($toUser) || empty($message)) {
+        throw new \Exception("接收人和消息内容不能为空");
+    }
+    
+    // 发送企业微信通知
+    $noticeData = [
+        "touser" => $toUser,
+        "msgtype" => "text",
+        "text" => [
+            "content" => $message,
+        ],
+        "agentid" => $corp->get("agent_id")
+    ];
+    
+    $result = $corp->postWechatApi("https://qyapi.weixin.qq.com/cgi-bin/message/send", $noticeData, "json");
+    
+    return $this->jsonResponse(["message" => "通知发送成功", "result" => $result]);
+}
+
+
 
 }
+
+

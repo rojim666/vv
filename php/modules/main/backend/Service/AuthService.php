@@ -77,13 +77,13 @@ class AuthService
             'corp_id' => $codeLoginDTO->corpId,
             'userid' => $wechatUserInfo['userid'],
             'account' => mb_substr($corpInfo->get('id') . "_" . $wechatUserInfo['userid'], 0, 32), //生成一个默认登录用户名
-            'role_id' => !empty($staffUserInfo)?$staffUserInfo->get("role_id"):EnumUserRoleType::NORMAL_STAFF->value,
+            'role_id' => !empty($staffUserInfo)?$staffUserInfo->get("role_id"):EnumUserRoleType::COPYWRITER_SPECIALIST->value,
         ];
 
-        //如果当前企业没有超级管理员，把当前创建的账号设置为超级管理员账户
-        $superAdminUser = UserModel::query()->where(['corp_id' => $codeLoginDTO->corpId, "role_id" => EnumUserRoleType::SUPPER_ADMIN->value])->getOne();
-        if (empty($superAdminUser)) {
-            $accountData["role_id"] = EnumUserRoleType::SUPPER_ADMIN->value;
+        //如果当前企业没有管理者，把当前创建的账号设置为管理者账户
+        $managerUser = UserModel::query()->where(['corp_id' => $codeLoginDTO->corpId, "role_id" => EnumUserRoleType::MANAGER->value])->getOne();
+        if (empty($managerUser)) {
+            $accountData["role_id"] = EnumUserRoleType::MANAGER->value;
         }
 
         // 获取或创建新用户
@@ -92,9 +92,9 @@ class AuthService
             ['userid' => $wechatUserInfo['userid']],
         ], $accountData);
 
-        //如果不是游客账号，验证登陆权限
+        //如果不是文案营销专员，验证登陆权限
         $moduleConfig = Module::getLocalModuleConfig("user_permission");
-        if ($userInfo->get("role_id") != EnumUserRoleType::VISITOR->value && isset($moduleConfig['paused']) && !($moduleConfig["paused"])) {
+        if ($userInfo->get("role_id") != EnumUserRoleType::COPYWRITER_SPECIALIST->value && isset($moduleConfig['paused']) && !($moduleConfig["paused"])) {
             $checkData = [
                 "role_id" => $userInfo->get("role_id"),
                 "permission_key" => "main.user_login.list",

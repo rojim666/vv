@@ -268,23 +268,23 @@ SQL;
      */
     public function checkMsg($msg, $rule): bool
     {
-        //如果会话类型不是全部消息类型，且消息会话类型不匹配，推出
+        // 如果会话类型不是全部消息类型，且消息会话类型不匹配，推出
         if ($rule["chat_type"] != 0 && $rule["chat_type"] != $msg["conversation_type"]->value) {
             return false;
         }
 
-        //如果指定会话类型是指定群聊
+        // 如果指定会话类型是指定群聊
         if ($rule["chat_type"] == EnumChatConversationType::Group->value && $rule["group_chat_type"] == 2 && !in_array($msg["roomid"] ?? "", $rule["group_chat_id"])) {
             return false;
         }
 
-        //如果消息发送人是指定角色
+        // 如果消息发送人是指定角色
         if ($rule["check_user_type"] != 0 && $rule["check_user_type"] != $msg["from_role"]->value) {
             return false;
         }
 
 
-        //开始验证内容
+        // 开始验证内容
 
         $insertData = [
             "corp_id" => $this->corp->get("id"),
@@ -537,12 +537,6 @@ SQL;
         if ($noticeInfo["wechat_notice_switch"] && !empty($noticeInfo["wechat_notice_hook"])) {
             $this->noticeWechat($noticeInfo, $send_msg);
         }
-
-        //钉钉群通知
-        if ($noticeInfo["dingtalk_notice_switch"] && !empty($noticeInfo["dingtalk_notice_hook"])) {
-            $this->noticeDingTalk($noticeInfo, $send_msg);
-        }
-
 
     }
 

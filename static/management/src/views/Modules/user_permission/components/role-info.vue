@@ -100,7 +100,7 @@
             placeholder="请选择角色">
             <template v-for="role in roles">
               <a-select-option
-                v-if="!['游客账号', '超级管理员'].includes(role.role_name)"
+                v-if="!['文案营销专员', '管理者'].includes(role.role_name)"
                 :value="role.id"
                 :key="role.id">
                 {{ role.role_name }}

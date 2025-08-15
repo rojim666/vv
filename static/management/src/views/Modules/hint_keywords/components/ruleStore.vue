@@ -57,6 +57,7 @@
           <a-checkbox value="card">发送名片</a-checkbox>
           <a-checkbox value="qr_code">发送二维码图片</a-checkbox>
           <a-checkbox value="link_text">发送包含链接的文本 (发送的文本内容中包含域地址)</a-checkbox>
+          <a-checkbox value="mobile">发送手机号</a-checkbox>
         </a-checkbox-group>
       </a-form-item>
       <a-form-item></a-form-item>

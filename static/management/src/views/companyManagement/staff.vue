@@ -101,7 +101,7 @@
                         placeholder="请选择角色">
                         <template v-for="role in roles">
                             <a-select-option
-                                v-if="!['游客账号', '超级管理员'].includes(role.role_name)"
+                                v-if="!['文案营销专员', '管理者'].includes(role.role_name)"
                                 :key="role.id">
                                 {{ role.role_name }}
                             </a-select-option>
@@ -192,7 +192,7 @@ const userInfo = computed(() => {
     return store.getters.getUserInfo
 })
 
-const administrator = [2, 3]
+const administrator = [3, 4] // 管理者和文案主管
 
 onMounted(() => {
     const tabIndex = StaffAccountsTabs.map(item => item.key).indexOf('accounts')

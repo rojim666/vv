@@ -18,4 +18,5 @@ enum EnumRuleTriggerMsgType: string
     case Card = "card";  //卡片
     case LinkText = "link_text";  //包含链接的文本
     case QrCode = "qr_code";  //二维码图片
+    case Mobile = "mobile";  // 手机号
 }
