@@ -2764,8 +2764,8 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @example
      * ```
-     * Carbon::parse('2024-08-31')->endOfWeek()->isEndOfWeek(); // true
-     * Carbon::parse('2024-08-31')->isEndOfWeek(); // false
+     * Carbon::parse('2025-08-31')->endOfWeek()->isEndOfWeek(); // true
+     * Carbon::parse('2025-08-31')->isEndOfWeek(); // false
      * ```
      */
     public function isEndOfWeek(Unit|DateInterval|Closure|CarbonConverterInterface|string|null $interval = null, WeekDay|int|null $weekEndsAt = null): bool;
@@ -3080,8 +3080,8 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @example
      * ```
-     * Carbon::parse('2024-08-31')->startOfWeek()->isStartOfWeek(); // true
-     * Carbon::parse('2024-08-31')->isStartOfWeek(); // false
+     * Carbon::parse('2025-08-31')->startOfWeek()->isStartOfWeek(); // true
+     * Carbon::parse('2025-08-31')->isStartOfWeek(); // false
      * ```
      */
     public function isStartOfWeek(Unit|DateInterval|Closure|CarbonConverterInterface|string|null $interval = null, WeekDay|int|null $weekStartsAt = null): bool;

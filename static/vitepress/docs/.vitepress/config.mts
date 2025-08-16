@@ -11,7 +11,7 @@ export default withMermaid(
             // https://vitepress.dev/reference/default-theme-config
             nav: [
                 { text: '体验', link: '/management#/' },
-                { text: '芝麻微客-会话存档', link: 'https://huihuacundang.zmwk.cn' },
+                { text: '百分之二微客-会话存档', link: 'https://huihuacundang.zmwk.cn' },
             ],
 
             sidebar: [

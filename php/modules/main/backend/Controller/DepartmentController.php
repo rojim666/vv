@@ -15,7 +15,7 @@ use Yiisoft\Auth\Middleware\Authentication;
 /**
  * @author rand
  * @ClassName DepartmentController
- * @date 2024/11/114:16
+ * @date 2025/11/114:16
  * @description
  */
 class DepartmentController extends BaseController
@@ -24,7 +24,7 @@ class DepartmentController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 同步更新部门列表
      * User: rand
-     * Date: 2024/11/1 14:17
+     * Date: 2025/11/1 14:17
      * @return ResponseInterface
      */
     public function sync(ServerRequestInterface $request): ResponseInterface
@@ -41,7 +41,7 @@ class DepartmentController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 部门列表
      * User: rand
-     * Date: 2024/11/1 14:17
+     * Date: 2025/11/1 14:17
      * @return ResponseInterface
      */
     public function list(ServerRequestInterface $request): ResponseInterface

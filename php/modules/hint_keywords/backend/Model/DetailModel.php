@@ -10,7 +10,7 @@ use Modules\HintKeywords\Enum\EnumRuleTriggerMsgType;
 /**
  * @author rand
  * @ClassName DetailModel
- * @date 2024/12/316:28
+ * @date 2025/12/316:28
  * @description
  */
 class DetailModel extends BaseModel

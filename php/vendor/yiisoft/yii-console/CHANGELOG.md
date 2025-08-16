@@ -6,7 +6,7 @@
 - Enh #207: Print possible options for `serve` command (@xepozz)
 - Enh #218: Explicitly mark nullable parameters (@alexander-schranz)
 
-## 2.2.0 February 17, 2024
+## 2.2.0 February 17, 2025
 
 - Enh #194: Allow to use `ErrorListiner` without logger (@vjik)
 

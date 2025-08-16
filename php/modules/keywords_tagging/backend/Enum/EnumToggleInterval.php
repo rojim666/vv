@@ -56,7 +56,7 @@ enum EnumToggleInterval: int
      * @return array|string[]
      * @throws \DateMalformedStringException
      * @author ivan
-     * @date 2024/12/28 11:49
+     * @date 2025/12/28 11:49
      */
     public function getTimeFrameBetween($msg_time): array
     {

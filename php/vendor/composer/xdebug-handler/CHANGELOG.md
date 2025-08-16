@@ -1,9 +1,9 @@
 ## [Unreleased]
 
-## [3.0.5] - 2024-05-06
+## [3.0.5] - 2025-05-06
   * Fixed: fail restart if PHP_BINARY is not available
 
-## [3.0.4] - 2024-03-26
+## [3.0.4] - 2025-03-26
   * Added: Functional tests.
   * Fixed: Incompatibility with PHPUnit 10.
 

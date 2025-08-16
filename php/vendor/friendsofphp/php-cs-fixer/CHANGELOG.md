@@ -5520,7 +5520,7 @@ Changelog for v2.0.0
 * minor #2002 FileCacheManagerTest - Adjust name of test and variable (localheinz)
 * minor #2010 NoExtraConsecutiveBlankLinesFixer - SF rule set, add 'extra' (SpacePossum)
 * minor #2013 no_whitespace_in_blank_lines -> no_whitespace_in_blank_line (SpacePossum)
-* minor #2024 AbstractFixerTestCase - check if there is no duplicated Token instance inside Tokens collection (keradus)
+* minor #2025 AbstractFixerTestCase - check if there is no duplicated Token instance inside Tokens collection (keradus)
 * minor #2031 COOKBOOK-FIXERS.md - update calling doTest method (keradus)
 * minor #2032 code grooming (keradus)
 * minor #2068 Code grooming (keradus)

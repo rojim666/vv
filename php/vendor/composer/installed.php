@@ -670,8 +670,8 @@
             'dev_requirement' => false,
         ),
         'spiral/roadrunner' => array(
-            'pretty_version' => 'v2024.3.5',
-            'version' => '2024.3.5.0',
+            'pretty_version' => 'v2025.3.5',
+            'version' => '2025.3.5.0',
             'reference' => '6c147b5d5bf93e8cb7ab77e3d2e371c119043212',
             'type' => 'metapackage',
             'install_path' => null,

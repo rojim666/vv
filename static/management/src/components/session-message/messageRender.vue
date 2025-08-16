@@ -259,19 +259,19 @@ const onShowMessage = (list) => {
     }
 }
 
-const payenmtModalShow = () => {
-    Modal.confirm({
-        title: '语音播放插件需购买开启后使用',
-        content: '确认去购买吗？',
-        okText: '去购买',
-        onOk: () => {
-            const link = router.resolve({
-                path: '/plug/index'
-            })
-            window.open(link.href)
-        }
-    })
-}
+// const payenmtModalShow = () => {
+//     Modal.confirm({
+//         title: '语音播放插件需购买开启后使用',
+//         content: '确认去购买吗？',
+//         okText: '去购买',
+//         onOk: () => {
+//             const link = router.resolve({
+//                 path: '/plug/index'
+//             })
+//             window.open(link.href)
+//         }
+//     })
+// }
 
 const existArchivePlug = () => {
     if (!archiveStfModule.value.is_install || archiveStfModule.value.is_expired) {

@@ -15,7 +15,7 @@ use Throwable;
 /**
  * Notes:群聊统计
  * User: rand
- * Date: 2024/12/27 17:22
+ * Date: 2025/12/27 17:22
  */
 class StatisticController extends BaseController
 {
@@ -23,7 +23,7 @@ class StatisticController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 获取群聊统计配置
      * User: rand
-     * Date: 2024/12/2 10:35
+     * Date: 2025/12/2 10:35
      * @return ResponseInterface
      * @throws Throwable
      */
@@ -40,7 +40,7 @@ class StatisticController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 保存单聊统计配置
      * User: rand
-     * Date: 2024/12/2 10:35
+     * Date: 2025/12/2 10:35
      * @return ResponseInterface
      */
     public function saveConfig(ServerRequestInterface $request): ResponseInterface
@@ -58,7 +58,7 @@ class StatisticController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 获取群聊统计列表
      * User: rand
-     * Date: 2024/12/27 17:24
+     * Date: 2025/12/27 17:24
      * @return ResponseInterface
      * @throws \Throwable
      * @throws \Yiisoft\Db\Exception\Exception
@@ -80,7 +80,7 @@ class StatisticController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 获取单聊统计明细
      * User: rand
-     * Date: 2024/12/2 10:35
+     * Date: 2025/12/2 10:35
      * @return ResponseInterface
      */
     public function getDetail(ServerRequestInterface $request): ResponseInterface
@@ -98,7 +98,7 @@ class StatisticController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 主动更新统计
      * User: rand
-     * Date: 2024/12/25 18:53
+     * Date: 2025/12/25 18:53
      * @return ResponseInterface
      */
     public function stat(ServerRequestInterface $request): ResponseInterface

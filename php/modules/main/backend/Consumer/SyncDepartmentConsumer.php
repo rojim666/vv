@@ -15,7 +15,7 @@ use Throwable;
 /**
  * @author rand
  * @ClassName SyncDepartmentConsumer
- * @date 2024/11/114:51
+ * @date 2025/11/114:51
  * @description 部门、员工、标签同步
  */
 class SyncDepartmentConsumer
@@ -46,7 +46,7 @@ class SyncDepartmentConsumer
     /**
      * Notes: 同步部门员工列表
      * User: rand
-     * Date: 2024/11/6 14:22
+     * Date: 2025/11/6 14:22
      * @return void
      * @throws Throwable
      */
@@ -107,7 +107,7 @@ class SyncDepartmentConsumer
      * @param $departmentId
      * Notes: 同步员工列表
      * User: rand
-     * Date: 2024/11/1 16:18
+     * Date: 2025/11/1 16:18
      * @return void
      * @throws Throwable
      */
@@ -176,7 +176,7 @@ class SyncDepartmentConsumer
      * @param CorpModel $corpModel
      * Notes: 同步员工标签列表
      * User: rand
-     * Date: 2024/11/6 10:26
+     * Date: 2025/11/6 10:26
      * @return void
      * @throws Throwable
      */
@@ -247,7 +247,7 @@ class SyncDepartmentConsumer
      * @param $tagId
      * Notes: 获取标签下的员工ID
      * User: rand
-     * Date: 2024/11/6 14:33
+     * Date: 2025/11/6 14:33
      * @return array
      * @throws Throwable
      */

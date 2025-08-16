@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $(`#product${$(this).data('index')}`).siblings().removeClass('display-flex')
   }
 
-  // setUserInfo({"id":3,"corp_id":"ww5f432b3a24a9b9f1","userid":"LuoYingBinFen","account":"ww5f432b3a24a9b9f1_LuoYingBinFen","password":"","created_at":"2024-11-19 16:38:36","updated_at":"2024-11-19 16:38:36","cacheTimestamp":-1})
+  // setUserInfo({"id":3,"corp_id":"ww5f432b3a24a9b9f1","userid":"LuoYingBinFen","account":"ww5f432b3a24a9b9f1_LuoYingBinFen","password":"","created_at":"2025-11-19 16:38:36","updated_at":"2025-11-19 16:38:36","cacheTimestamp":-1})
   $('#tabParent .main-title-item').hover(handleClick)
 
 function deleteCookieForDomain(name, domain) {

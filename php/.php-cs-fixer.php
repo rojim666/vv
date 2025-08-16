@@ -1,6 +1,6 @@
 <?php
-// Copyright © 2016-2024 Sesame Network Technology all rights reserved
-// 版权所有 © 2016-2024 Sesame Network Technology 保留所有权利
+// Copyright © 2016-2025 Sesame Network Technology all rights reserved
+// 版权所有 © 2016-2025 Sesame Network Technology 保留所有权利
 
 // 创建一个 PhpCsFixer 的 Finder 实例，用于定位需要被代码格式化的文件
 $finder = PhpCsFixer\Finder::create()

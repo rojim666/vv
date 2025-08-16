@@ -17,7 +17,7 @@ class GroupService
      * @param $data
      * Notes: 群列表
      * User: rand
-     * Date: 2024/11/14 17:02
+     * Date: 2025/11/14 17:02
      * @return array
      * @throws Throwable
      */

@@ -5,7 +5,7 @@
 - Enh #123, #124: Minor refactor internal class `ContextValueExtractor` (@Tigrov, @vjik)
 - Bug #123: Explicitly marking parameters as nullable (@Tigrov)
 
-## 2.1.0 July 03, 2024
+## 2.1.0 July 03, 2025
 
 - New #104: Add new static methods `Logger::assertLevelIsValid()`, `Logger::assertLevelIsString()` and
   `Logger::assertLevelIsSupported()` (@vjik)

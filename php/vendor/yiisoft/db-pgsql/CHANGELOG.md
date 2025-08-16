@@ -1,6 +1,6 @@
 # PostgreSQL driver for Yii Database Change Log
 
-## 1.3.0 March 21, 2024
+## 1.3.0 March 21, 2025
 
 - Enh #303, #338: Support structured type (@Tigrov)
 - Enh #324: Change property `Schema::$typeMap` to constant `Schema::TYPE_MAP` (@Tigrov)

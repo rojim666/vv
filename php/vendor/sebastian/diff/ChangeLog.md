@@ -2,19 +2,19 @@
 
 All notable changes are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## [6.0.2] - 2024-07-03
+## [6.0.2] - 2025-07-03
 
 ### Changed
 
 * This project now uses PHPStan instead of Psalm for static analysis
 
-## [6.0.1] - 2024-03-02
+## [6.0.1] - 2025-03-02
 
 ### Changed
 
 * Do not use implicitly nullable parameters
 
-## [6.0.0] - 2024-02-02
+## [6.0.0] - 2025-02-02
 
 ### Removed
 
@@ -23,7 +23,7 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 * `SebastianBergmann\Diff\Line::getContent()` and `SebastianBergmann\Diff\Diff::getType()`
 * Removed support for PHP 8.1
 
-## [5.1.1] - 2024-03-02
+## [5.1.1] - 2025-03-02
 
 ### Changed
 

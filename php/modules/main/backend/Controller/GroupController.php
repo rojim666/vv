@@ -20,7 +20,7 @@ class GroupController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 同步群聊
      * User: rand
-     * Date: 2024/11/7 18:31
+     * Date: 2025/11/7 18:31
      * @return ResponseInterface
      * @throws Throwable
      */
@@ -38,7 +38,7 @@ class GroupController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 群列表
      * User: rand
-     * Date: 2024/11/7 18:32
+     * Date: 2025/11/7 18:32
      * @return DataResponse
      * @throws Throwable
      */

@@ -16,7 +16,7 @@ use Throwable;
 /**
  * @details 关键词打标签任务 服务
  * @author ivan
- * @date 2024/12/23 14:34
+ * @date 2025/12/23 14:34
  * Class TaskController
  */
 class TaskController extends BaseController
@@ -27,7 +27,7 @@ class TaskController extends BaseController
      * @return ResponseInterface
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 14:35
+     * @date 2025/12/23 14:35
      */
     public function list(ServerRequestInterface $request): ResponseInterface
     {
@@ -44,7 +44,7 @@ class TaskController extends BaseController
      * @return ResponseInterface
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 14:35
+     * @date 2025/12/23 14:35
      */
     public function delete(ServerRequestInterface $request): ResponseInterface
     {
@@ -62,7 +62,7 @@ class TaskController extends BaseController
      * @return ResponseInterface
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 14:36
+     * @date 2025/12/23 14:36
      */
     public function save(ServerRequestInterface $request): ResponseInterface
     {
@@ -82,7 +82,7 @@ class TaskController extends BaseController
      * @return ResponseInterface
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 18:46
+     * @date 2025/12/23 18:46
      */
     public function info(ServerRequestInterface $request): ResponseInterface
     {
@@ -101,7 +101,7 @@ class TaskController extends BaseController
      * @return ResponseInterface
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/24 11:00
+     * @date 2025/12/24 11:00
      */
     public function statistics(ServerRequestInterface $request): ResponseInterface
     {
@@ -117,7 +117,7 @@ class TaskController extends BaseController
      * @return ResponseInterface
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 15:15
+     * @date 2025/12/23 15:15
      */
     public function changeStatus(ServerRequestInterface $request): ResponseInterface
     {
@@ -135,7 +135,7 @@ class TaskController extends BaseController
      * @return ResponseInterface
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/24 10:51
+     * @date 2025/12/24 10:51
      */
     public function RuleTriggerLogList(ServerRequestInterface $request): ResponseInterface
     {

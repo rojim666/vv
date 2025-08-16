@@ -20,7 +20,7 @@ use Yiisoft\Auth\Middleware\Authentication;
 /**
  * @author rand
  * @ClassName StaffController
- * @date 2024/11/116:05
+ * @date 2025/11/116:05
  * @description
  */
 class StaffController extends BaseController
@@ -30,7 +30,7 @@ class StaffController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 员工列表
      * User: rand
-     * Date: 2024/11/7 18:32
+     * Date: 2025/11/7 18:32
      * @return ResponseInterface
      */
     public function list(ServerRequestInterface $request): ResponseInterface

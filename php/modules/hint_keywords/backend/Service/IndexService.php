@@ -21,7 +21,7 @@ use Yiisoft\Arrays\ArrayHelper;
 /**
  * @author rand
  * @ClassName StatisticService
- * @date 2024/12/314:42
+ * @date 2025/12/314:42
  * @description
  */
 class IndexService
@@ -33,7 +33,7 @@ class IndexService
      * @param $data
      * Notes: 敏感词列表
      * User: rand
-     * Date: 2024/12/3 14:55
+     * Date: 2025/12/3 14:55
      * @return array
      * @throws \Throwable
      */
@@ -69,7 +69,7 @@ class IndexService
      * @param $data
      * Notes: 删除敏感词组
      * User: rand
-     * Date: 2024/12/10 11:01
+     * Date: 2025/12/10 11:01
      * @return void
      * @throws \Throwable
      */
@@ -85,7 +85,7 @@ class IndexService
      * @param $data
      * Notes: 保存敏感词
      * User: rand
-     * Date: 2024/12/3 15:08
+     * Date: 2025/12/3 15:08
      * @return void
      * @throws \Throwable
      */
@@ -135,7 +135,7 @@ class IndexService
      * @param $data
      * Notes: 规则列表
      * User: rand
-     * Date: 2024/12/4 11:49
+     * Date: 2025/12/4 11:49
      * @return array
      * @throws \Throwable
      */
@@ -171,7 +171,7 @@ class IndexService
      * @param $rule_id
      * Notes: 敏感词统计
      * User: rand
-     * Date: 2024/12/3 17:09
+     * Date: 2025/12/3 17:09
      * @return array
      */
     public static function ruleStatistics(CorpModel $corp, $rule_id, $start_time, $end_time): array
@@ -245,7 +245,7 @@ SQL;
      * @param $data
      * Notes: 保存敏感词规则
      * User: rand
-     * Date: 2024/12/3 17:09
+     * Date: 2025/12/3 17:09
      * @return void
      * @throws \Throwable
      */
@@ -284,7 +284,7 @@ SQL;
      * @param $data
      * Notes: 变更规则启用状态
      * User: rand
-     * Date: 2024/12/6 15:11
+     * Date: 2025/12/6 15:11
      * @return void
      * @throws \Throwable
      */
@@ -302,7 +302,7 @@ SQL;
      * @param $rule_id
      * Notes: 获取单个规则详情
      * User: rand
-     * Date: 2024/12/3 17:30
+     * Date: 2025/12/3 17:30
      * @return array
      * @throws \Throwable
      */
@@ -328,7 +328,7 @@ SQL;
      * @param $param
      * Notes: 敏感词触发明细
      * User: rand
-     * Date: 2024/12/10 10:08
+     * Date: 2025/12/10 10:08
      * @return array
      * @throws \Throwable
      * @throws \Yiisoft\Db\Exception\Exception
@@ -490,7 +490,7 @@ SQL;
      * @param $data
      * Notes: 删除敏感词规则
      * User: rand
-     * Date: 2024/12/10 11:04
+     * Date: 2025/12/10 11:04
      * @return void
      * @throws \Throwable
      */
@@ -507,7 +507,7 @@ SQL;
      * @param CorpModel $corp
      * Notes: 敏感词提醒通知配置
      * User: rand
-     * Date: 2024/12/3 18:43
+     * Date: 2025/12/3 18:43
      * @return array
      */
     public static function noticeInfo(CorpModel $corp): array
@@ -536,7 +536,7 @@ SQL;
      * @param $data
      * Notes: 保存通知配置
      * User: rand
-     * Date: 2024/12/6 17:47
+     * Date: 2025/12/6 17:47
      * @return void
      * @throws \Throwable
      */

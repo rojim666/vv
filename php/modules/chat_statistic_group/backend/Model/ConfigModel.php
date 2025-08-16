@@ -8,7 +8,7 @@ use Common\DB\BaseModel;
 /**
  * Notes: 群聊统计配置
  * User: rand
- * Date: 2024/12/27 11:28
+ * Date: 2025/12/27 11:28
  */
 class ConfigModel extends BaseModel
 {

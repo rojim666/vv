@@ -202,7 +202,7 @@ class ChatController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 会话搜索
      * User: rand
-     * Date: 2024/11/11 12:03
+     * Date: 2025/11/11 12:03
      * @return ResponseInterface
      * @throws Throwable
      */
@@ -220,7 +220,7 @@ class ChatController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 获取会话存档展示配置
      * User: rand
-     * Date: 2024/12/10 16:40
+     * Date: 2025/12/10 16:40
      * @return ResponseInterface
      * @throws Throwable
      */
@@ -237,7 +237,7 @@ class ChatController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 设置会话存档展示配置
      * User: rand
-     * Date: 2024/12/10 16:52
+     * Date: 2025/12/10 16:52
      * @return ResponseInterface
      * @throws Throwable
      */

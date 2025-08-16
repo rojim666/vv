@@ -211,15 +211,15 @@ const showFileSize = size => {
     return formatBytes(size)
 }
 
-const showBuyFileStorage = () => {
-    Modal.confirm({
-        title: `文件存储不足`,
-        okText: `去购买`,
-        cancelText: '取 消',
-        width: '500px',
-        centered: true,
-    })
-}
+// const showBuyFileStorage = () => {
+//     Modal.confirm({
+//         title: `文件存储不足`,
+//         okText: `去购买`,
+//         cancelText: '取 消',
+//         width: '500px',
+//         centered: true,
+//     })
+// }
 </script>
 
 <style scoped lang="less">

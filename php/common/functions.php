@@ -48,7 +48,7 @@ function ddump($var, $echo = true, $label = null, $strict = true, $level = 0): ?
  * @param $num
  * Notes: 数据分组
  * User: rand
- * Date: 2024/11/7 10:26
+ * Date: 2025/11/7 10:26
  * @return array
  */
 function arraySplit($data, $num = 5): array
@@ -140,7 +140,7 @@ function array_pick_fields($data, $keys)
  * @param $header
  * Notes: 发起post请求
  * User: rand
- * Date: 2024/12/10 12:26
+ * Date: 2025/12/10 12:26
  * @return bool|string
  */
 function requestByPost($url, $json,$time_out=0,$header=null)
@@ -177,7 +177,7 @@ function requestByPost($url, $json,$time_out=0,$header=null)
  * @param $img_url
  * Notes: 验证是否为二维码图片
  * User: rand
- * Date: 2024/12/10 12:19
+ * Date: 2025/12/10 12:19
  * @return array
  */
 function checkImgIsQrcode($img_url)
@@ -217,7 +217,7 @@ function is_md5($string)
  * @param $msg_timestamp
  * Notes: 验证消息时间是否在工作时间内
  * User: rand
- * Date: 2024/12/20 15:26
+ * Date: 2025/12/20 15:26
  * @return bool
  */
 function checkMsgInWorkTime($time_range, $msg_timestamp): bool

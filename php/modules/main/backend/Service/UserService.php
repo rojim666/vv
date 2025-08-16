@@ -68,7 +68,7 @@ class UserService
      * @param $data
      * Notes: 演示账户列表
      * User: rand
-     * Date: 2024/12/11 20:13
+     * Date: 2025/12/11 20:13
      * @return array
      */
     public static function demoUserList(CorpModel $corp, $data)
@@ -93,7 +93,7 @@ class UserService
      * @param $data
      * Notes: 演示账户保存
      * User: rand
-     * Date: 2024/12/11 20:14
+     * Date: 2025/12/11 20:14
      * @return array
      */
     public static function demoUserSave(CorpModel $corp, CreateUserBaseDTO $data)
@@ -138,7 +138,7 @@ class UserService
      * @param $data
      * Notes: 更新登陆权限
      * User: rand
-     * Date: 2024/12/16 12:10
+     * Date: 2025/12/16 12:10
      * @return void
      * @throws \Throwable
      */
@@ -157,7 +157,7 @@ class UserService
      * @param $data
      * Notes: 删除账号
      * User: rand
-     * Date: 2024/12/16 12:12
+     * Date: 2025/12/16 12:12
      * @return void
      * @throws \Throwable
      */

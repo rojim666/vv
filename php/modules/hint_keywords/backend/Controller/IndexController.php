@@ -14,7 +14,7 @@ use Yiisoft\Auth\Middleware\Authentication;
 /**
  * @author rand
  * @ClassName TestController
- * @date 2024/12/314:40
+ * @date 2025/12/314:40
  * @description
  */
 class IndexController extends BaseController
@@ -24,7 +24,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 敏感词列表
      * User: rand
-     * Date: 2024/12/3 14:55
+     * Date: 2025/12/3 14:55
      * @return ResponseInterface
      * @throws \Throwable
      */
@@ -41,7 +41,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 删除敏感词组
      * User: rand
-     * Date: 2024/12/10 11:01
+     * Date: 2025/12/10 11:01
      * @return ResponseInterface
      * @throws \Throwable
      */
@@ -58,7 +58,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 保存敏感词列表
      * User: rand
-     * Date: 2024/12/3 14:57
+     * Date: 2025/12/3 14:57
      * @return ResponseInterface
      * @throws \Throwable
      */
@@ -78,7 +78,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 敏感词规则列表
      * User: rand
-     * Date: 2024/12/3 15:13
+     * Date: 2025/12/3 15:13
      * @return ResponseInterface
      */
     public function ruleList(ServerRequestInterface $request): ResponseInterface
@@ -96,7 +96,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 敏感词规则列表
      * User: rand
-     * Date: 2024/12/3 15:13
+     * Date: 2025/12/3 15:13
      * @return ResponseInterface
      */
     public function ruleStatistic(ServerRequestInterface $request): ResponseInterface
@@ -117,7 +117,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 保存敏感词规则
      * User: rand
-     * Date: 2024/12/3 16:37
+     * Date: 2025/12/3 16:37
      * @return ResponseInterface
      * @throws \Throwable
      */
@@ -136,7 +136,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 更新规则启用状态
      * User: rand
-     * Date: 2024/12/6 15:09
+     * Date: 2025/12/6 15:09
      * @return ResponseInterface
      */
     public function changeStatus(ServerRequestInterface $request): ResponseInterface
@@ -152,7 +152,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 获取规则明细
      * User: rand
-     * Date: 2024/12/3 17:30
+     * Date: 2025/12/3 17:30
      * @return ResponseInterface
      * @throws \Throwable
      */
@@ -171,7 +171,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 敏感词规则命中明细
      * User: rand
-     * Date: 2024/12/3 17:31
+     * Date: 2025/12/3 17:31
      * @return ResponseInterface
      */
     public function ruleDetail(ServerRequestInterface $request): ResponseInterface
@@ -189,7 +189,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 删除敏感词规则
      * User: rand
-     * Date: 2024/12/10 11:03
+     * Date: 2025/12/10 11:03
      * @return ResponseInterface
      */
     public function ruleDelete(ServerRequestInterface $request): ResponseInterface
@@ -207,7 +207,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 获取通知配置详情
      * User: rand
-     * Date: 2024/12/5 10:36
+     * Date: 2025/12/5 10:36
      * @return ResponseInterface
      */
     public function noticeInfo(ServerRequestInterface $request): ResponseInterface
@@ -224,7 +224,7 @@ class IndexController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 通知规则保存
      * User: rand
-     * Date: 2024/12/5 10:35
+     * Date: 2025/12/5 10:35
      * @return ResponseInterface
      */
     public function noticeSave(ServerRequestInterface $request): ResponseInterface

@@ -48,7 +48,7 @@ class RuleTriggerLogModel extends BaseModel
      * @throws \Yiisoft\Db\Exception\Exception
      * @throws \Yiisoft\Db\Exception\InvalidConfigException
      * @author ivan
-     * @date 2024/12/23 18:21
+     * @date 2025/12/23 18:21
      */
     public static function getTotalStatistics($corp_id=0,$task_ids=[]):array {
 
@@ -80,7 +80,7 @@ class RuleTriggerLogModel extends BaseModel
      * @throws \Yiisoft\Db\Exception\Exception
      * @throws \Yiisoft\Db\Exception\InvalidConfigException
      * @author ivan
-     * @date 2024/12/23 18:34
+     * @date 2025/12/23 18:34
      */
     public static function getTodayStatistics($corp_id=0,$task_ids=[]): array
     {
@@ -99,7 +99,7 @@ class RuleTriggerLogModel extends BaseModel
      * @throws \Yiisoft\Db\Exception\Exception
      * @throws \Yiisoft\Db\Exception\InvalidConfigException
      * @author ivan
-     * @date 2024/12/23 18:34
+     * @date 2025/12/23 18:34
      */
     public static function getYesterdayStatistics($corp_id=0,$task_ids=[]): array
     {
@@ -120,7 +120,7 @@ class RuleTriggerLogModel extends BaseModel
      * @throws \Yiisoft\Db\Exception\Exception
      * @throws \Yiisoft\Db\Exception\InvalidConfigException
      * @author ivan
-     * @date 2024/12/23 18:28
+     * @date 2025/12/23 18:28
      */
     public static function getTotalStatisticsByTime($corp_id=0,$task_ids=[],$startTime='',$endTime=''): array
     {
@@ -158,7 +158,7 @@ class RuleTriggerLogModel extends BaseModel
      * @throws \Yiisoft\Db\Exception\Exception
      * @throws \Yiisoft\Db\Exception\InvalidConfigException
      * @author ivan
-     * @date 2024/12/23 18:55
+     * @date 2025/12/23 18:55
      */
     public static function getCorpStatistics($corp_id=0,$search=[]): array
     {

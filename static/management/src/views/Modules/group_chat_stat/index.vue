@@ -445,7 +445,7 @@ function linkPath(path, record) {
 }
 
 function disabledLastYear() {
-    return dayjs().format("YYYY") <= 2024
+    return dayjs().format("YYYY") <= 2025
 }
 
 function updateStatData() {

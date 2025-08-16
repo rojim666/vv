@@ -16,7 +16,7 @@ use Yiisoft\Arrays\ArrayHelper;
 /**
  * Notes: 群聊统计消费者
  * User: rand
- * Date: 2024/12/27 14:51
+ * Date: 2025/12/27 14:51
  */
 readonly class StatisticsGroupChatConsumer
 {
@@ -100,7 +100,7 @@ readonly class StatisticsGroupChatConsumer
      * @param $groupInfo
      * Notes:
      * User: rand
-     * Date: 2024/12/20 09:20
+     * Date: 2025/12/20 09:20
      * @return void
      */
     public static function statistic($corp, $rule, $staff_userid, $chat_id, $stat_time, $end_time, $groupInfo)
@@ -325,7 +325,7 @@ readonly class StatisticsGroupChatConsumer
      * @param $msg_type_filter
      * Notes: 验证消息是否匹配到关键字
      * User: rand
-     * Date: 2024/12/20 15:29
+     * Date: 2025/12/20 15:29
      * @return bool
      */
     public static function checkCstMsgKeyword($msg, $full, $half, $msg_type_filter)

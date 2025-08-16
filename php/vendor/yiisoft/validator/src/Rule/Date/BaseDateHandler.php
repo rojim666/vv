@@ -132,7 +132,7 @@ abstract class BaseDateHandler implements RuleHandlerInterface
             if ($rule instanceof Date) {
                 $result = DateTimeImmutable::createFromInterface($result)->setTime(0, 0);
             } elseif ($rule instanceof Time) {
-                $result = DateTimeImmutable::createFromInterface($result)->setDate(2024, 3, 29);
+                $result = DateTimeImmutable::createFromInterface($result)->setDate(2025, 3, 29);
             }
         }
 

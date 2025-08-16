@@ -179,7 +179,7 @@ class CorpModel extends BaseModel
      *              'headers' => [
      *                  'Content-Length' => '336'
      *                  'Content-Type' => 'application/json; charset=UTF-8'
-     *                  'Date' => 'Fri, 01 Nov 2024 10:46:58 GMT'
+     *                  'Date' => 'Fri, 01 Nov 2025 10:46:58 GMT'
      *                  'Error-Code' => '0'
      *                  'Error-Msg' => 'ok'
      *                  'Server' => 'nginx'
@@ -194,7 +194,7 @@ class CorpModel extends BaseModel
      *              'headers' => [
      *                  'Content-Length' => '336'
      *                  'Content-Type' => 'application/json; charset=UTF-8'
-     *                  'Date' => 'Fri, 01 Nov 2024 10:46:58 GMT'
+     *                  'Date' => 'Fri, 01 Nov 2025 10:46:58 GMT'
      *                  'Error-Code' => '0'
      *                  'Error-Msg' => 'ok'
      *                  'Server' => 'nginx'
@@ -216,7 +216,7 @@ class CorpModel extends BaseModel
      *              'headers' => [
      *                  'Content-Length' => '190'
      *                  'Content-Type' => 'application/json; charset=UTF-8'
-     *                  'Date' => 'Fri, 01 Nov 2024 10:10:38 GMT'
+     *                  'Date' => 'Fri, 01 Nov 2025 10:10:38 GMT'
      *                  'Error-Code' => '41001'
      *                  'Error-Msg' => 'access_token missing, hint: [1730455838562580895026052], from ip: 171.43.188.73, more info at https://open.work.weixin.qq.com/devtool/query?e=41001'
      *                  'Server' => 'nginx'
@@ -231,7 +231,7 @@ class CorpModel extends BaseModel
      *              'headers' => [
      *                  'Content-Length' => '190'
      *                  'Content-Type' => 'application/json; charset=UTF-8'
-     *                  'Date' => 'Fri, 01 Nov 2024 10:10:38 GMT'
+     *                  'Date' => 'Fri, 01 Nov 2025 10:10:38 GMT'
      *                  'Error-Code' => '41001'
      *                  'Error-Msg' => 'access_token missing, hint: [1730455838197562819860875], from ip: 171.43.188.73, more info at https://open.work.weixin.qq.com/devtool/query?e=41001'
      *                  'Server' => 'nginx'

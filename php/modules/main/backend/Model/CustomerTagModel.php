@@ -33,7 +33,7 @@ class CustomerTagModel extends BaseModel
      * @param $customerId
      * Notes: 客户添加到标签关联
      * User: rand
-     * Date: 2024/11/25 17:43
+     * Date: 2025/11/25 17:43
      * @return void
      *
      * @throws Throwable
@@ -61,7 +61,7 @@ WHERE tag_id = '{$tagId}' and corp_id = '{$corp->get('id')}'";
      * @param $customerId
      * Notes: 从标签关联中移除客户
      * User: rand
-     * Date: 2024/11/25 17:45
+     * Date: 2025/11/25 17:45
      * @return void
      *
      * @throws Throwable

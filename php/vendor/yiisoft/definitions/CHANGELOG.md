@@ -9,12 +9,12 @@
 - Enh #106: Mark readonly properties (@vjik)
 - Bug #105: Explicitly mark nullable parameters (@vjik)
 
-## 3.3.1 December 16, 2024
+## 3.3.1 December 16, 2025
 
 - Enh #101: Minor performance improvement by removing unnecessary code in `DefinitionStorage` (@vjik)
 - Bug #100: Fix resolving `ParameterDefinition` for optional parameters with union types (@vjik)
 
-## 3.3.0 March 16, 2024
+## 3.3.0 March 16, 2025
 
 - New #90: Allow multiple method call in array definition (@vjik)
 - Bug #86: Fix crash when intersection types are used (@vjik)

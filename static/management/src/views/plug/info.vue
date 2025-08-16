@@ -25,23 +25,19 @@
                                 <a class="ml4" href="https://github.com/zhimaAi/qiweidoc" target="_blank">去更新</a>
                             </div>
                         </div>
-                        <div v-if="detailData.expire_time > 0 && detailData.price_type > 1" class="zm-tip-info mt8">
-                            有效期至 {{ detailData.expire_date }}
-                            <span v-if="detailData.is_expired" class="expired-tag ml4">已到期</span>
-                        </div>
                         <div class="client-box-midden">{{ detailData.intro }}</div>
                         <div class="client-box-bottom">
                             <template v-if="detailData.is_install">
-                                <a-tooltip
+                                <!-- <a-tooltip
                                     v-if="!detailData.enable_bool"
-                                    :title="detailData.is_expired ? '已过期，请购买后启用' : null">
+                                    :title="detailData.is_expired ? '已过期，请购买后启用' : null"> 
                                     <a-button :disabled="detailData.is_expired"
                                               @click="statusChange(true)"
                                               type="primary">立即启用
                                     </a-button>
-                                </a-tooltip>
-                                <a-button v-else @click="statusChange(false)">禁 用</a-button>
-                                <a-button v-if="detailData.price_type > 1" @click="goPay">联系客服</a-button>
+                                </a-tooltip> -->
+                                <!-- <a-button v-else @click="statusChange(false)">禁 用</a-button> -->
+                               <!--<a-button v-if="detailData.price_type > 1" @click="goPay">联系客服</a-button>**/-->
                                 <a-popover
                                     v-if="!detailData.is_last_version"
                                     :getPopupContainer="triggerNode => triggerNode"
@@ -52,14 +48,14 @@
                                         <div class="last-version-tag">{{detailData.latest_version.version}}</div>
                                         <div class="update-desc" v-html="detailData.latest_version.upgrade_description.replace(/\r?\n/g, '<br/>')"></div>
                                     </template>
-                                    <a-button type="primary" ghost @click="install(true)" :loading="installing">更新</a-button>
+                                    <!--<a-button type="primary" ghost @click="install(true)" :loading="installing">更新</a-button>-->
                                 </a-popover>
                             </template>
                             <template v-else>
                                 <div class="price">{{ detailData.price_info }}</div>
-                                <a-button @click="install" :loading="installing">
+                                <!--<a-button @click="install" :loading="installing">
                                     {{ detailData.price_type > 1 ? '安装试用7天' : '安 装' }}
-                                </a-button>
+                                </a-button>-->
                             </template>
                         </div>
                     </div>

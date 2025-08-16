@@ -9,7 +9,7 @@ use Common\DB\BaseModel;
 /**
  * @author rand
  * @ClassName NoticeConfig
- * @date 2024/12/315:49
+ * @date 2025/12/315:49
  * @description
  */
 class NoticeConfig extends BaseModel

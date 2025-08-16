@@ -126,7 +126,7 @@ func startRR(name string, rpcPort, httpPort int, needPlugins []string) (*endure.
 	cfg := &config.Plugin{
 		Path:    configFile,
 		Timeout: 30,
-		Version: "2024.3.1",
+		Version: "2025.3.1",
 		Flags:   overrides,
 	}
 

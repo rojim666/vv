@@ -95,14 +95,14 @@ function getOpenCollectiveSponsors(): string
     ];
     $members[] = [
         'MemberId' => 2,
-        'createdAt' => '2024-11-14 02:00',
+        'createdAt' => '2025-11-14 02:00',
         'type' => 'ORGANIZATION',
         'role' => 'BACKER',
         'tier' => 'backer+ yearly',
         'isActive' => true,
         'totalAmountDonated' => 170,
         'currency' => 'USD',
-        'lastTransactionAt' => '2024-11-14 02:00',
+        'lastTransactionAt' => '2025-11-14 02:00',
         'lastTransactionAmount' => 170,
         'profile' => 'https://www.slotozilla.com/nz/free-spins',
         'name' => 'Slotozilla',

@@ -6,7 +6,7 @@
   (@vjik)
 - Enh #72: Allow to use PSR-20 clock interface to get current time into `Cookie` (@vjik)
 
-## 1.2.2 April 05, 2024
+## 1.2.2 April 05, 2025
 
 - Enh #52: Add support for `^2.0` version of `psr/http-message` (@vjik)
 

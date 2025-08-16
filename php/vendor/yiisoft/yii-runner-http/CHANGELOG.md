@@ -1,6 +1,6 @@
 # Yii Runner HTTP Change Log
 
-## 2.3.0 March 10, 2024
+## 2.3.0 March 10, 2025
 
 - New #69: Add ability to set custom config merge plan file path, config and vendor directories (@vjik)
 - Enh #58: Support stream output headers (@xepozz)

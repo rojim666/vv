@@ -11,14 +11,15 @@
                 <span class="label">选择角色：</span>
                 <div class="cont">
                     <a-button type="dashed" :icon="h(PlusOutlined)"  @click="onShowStaff">
-                        选择员工 ({{selectStaff.length}}/{{archiveStfSettings.max_staff_num}})
+                        选择员工 ({{selectStaff.length}})
                     </a-button>
-                    <div v-if="archiveStfModule.is_enabled" class="zm-tip-info mt4">
-                        如需设置更多，需前往“存档消息管理”插件设置<a class="ml8" @click="linkArchiveStfPlug">去设置</a>
+                    <!-- 注释掉限制提示信息 -->
+                    <!-- <div v-if="archiveStfModule.is_enabled" class="zm-tip-info mt4">
+                        如需设置更多，需前往"存档消息管理"插件设置<a class="ml8" @click="linkArchiveStfPlug">去设置</a>
                     </div>
                     <div v-else class="zm-tip-info mt4">
-                        如需设置更多，需开启“存档消息管理”插件<a class="ml8" @click="linkPlugHome">去开启</a>
-                    </div>
+                        如需设置更多，需开启"存档消息管理"插件<a class="ml8" @click="linkPlugHome">去开启</a>
+                    </div> -->
                     <div class="tag-block mt4" @scroll="loadMoreStaff">
                         <div class="tag-box">
                             <a-tag
@@ -39,7 +40,7 @@
         <SelectStaffNew
             @limit="selectStaffLimit"
             :isSession="1"
-            :max-staff-num="archiveStfSettings.max_staff_num || 5"
+            :max-staff-num="999999"
             selectType="multiple"
             ref="setStaff"
             @change="(val) => staffUpdate(val)"></SelectStaffNew>
@@ -118,7 +119,12 @@ const loadSessionStaff = () => {
             finished.value = true
             return
         }
-        selectStaff.value.push(...items)
+        // 默认选中所有存档员工
+        if (pagination.page === 1) {
+            selectStaff.value = [...items]  // 第一页时直接设置所有员工
+        } else {
+            selectStaff.value.push(...items)  // 后续页面追加
+        }
         pagination.total = res?.data?.total || 0
         emit('report', {total: pagination.total})
 
@@ -128,7 +134,12 @@ const loadSessionStaff = () => {
     })
 }
 
+// 注释掉或修改 selectStaffLimit 函数
 const selectStaffLimit = () => {
+    // 移除限制检查，允许选择所有员工
+    console.log('员工选择无限制')
+    // 原来的限制逻辑已被移除
+    /*
     if (archiveStfModule.value.is_enabled) {
         Modal.confirm({
             title: '存档员工管理',
@@ -141,13 +152,14 @@ const selectStaffLimit = () => {
     } else {
         Modal.confirm({
             title: '存档员工管理',
-            content: `最多设置5名员工，如需更多需购买「存档消息管理」插件`,
-            okText: '去购买',
+            content: `最多设置5名员工，如需更多需启动「存档消息管理」插件`,
+
             onOk: () => {
                 linkPlugHome()
             }
         })
     }
+    */
 }
 
 const linkArchiveStfPlug = () => {

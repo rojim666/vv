@@ -1,6 +1,6 @@
 # Yii Data Response Change Log
 
-## 2.1.0 March 03, 2024
+## 2.1.0 March 03, 2025
 
 - New #88: Add `PlainTextDataResponseFormatter` formatter and `FormatDataResponseAsPlainText` middleware (@vjik)
 - Enh #80: Add support for `psr/http-message` version `^2.0` (@vjik)

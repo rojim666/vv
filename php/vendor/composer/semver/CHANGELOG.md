@@ -3,15 +3,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-### [3.4.3] 2024-09-19
+### [3.4.3] 2025-09-19
 
   * Fixed some type annotations
 
-### [3.4.2] 2024-07-12
+### [3.4.2] 2025-07-12
 
   * Fixed PHP 5.3 syntax error
 
-### [3.4.1] 2024-07-12
+### [3.4.1] 2025-07-12
 
   * Fixed normalizeStability's return type to enforce valid stabilities
 

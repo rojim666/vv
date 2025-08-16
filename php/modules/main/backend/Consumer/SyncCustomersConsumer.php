@@ -14,7 +14,7 @@ use Throwable;
 /**
  * Notes:客户同步
  * User: rand
- * Date: 2024/11/6 19:12
+ * Date: 2025/11/6 19:12
  */
 class SyncCustomersConsumer
 {

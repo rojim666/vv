@@ -26,7 +26,7 @@ use Throwable;
 /**
  * @author rand
  * @ClassName MsgCheckKeywordsConsumer
- * @date 2024/12/611:26
+ * @date 2025/12/611:26
  * @description
  */
 class MsgCheckKeywordsConsumer
@@ -135,7 +135,7 @@ class MsgCheckKeywordsConsumer
      * @param MarkTagTaskModel $task
      * @return bool
      * @author ivan
-     * @date 2024/12/26 16:14
+     * @date 2025/12/26 16:14
      */
     public function checkMsg(ChatMessageModel $msg,  MarkTagTaskModel $task): bool
     {
@@ -325,7 +325,7 @@ class MsgCheckKeywordsConsumer
      * @return mixed
      * @throws \DateMalformedStringException
      * @author ivan
-     * @date 2024/12/28 10:12
+     * @date 2025/12/28 10:12
      */
     public function GetTaskTrigger($task_id,$staff_userid,$external_userid,$msg_time,$toggle_interval):int{
         $day=date('Ymd',strtotime($msg_time));
@@ -361,7 +361,7 @@ class MsgCheckKeywordsConsumer
      * @return void
      * @throws InvalidArgumentException
      * @author ivan
-     * @date 2024/12/28 10:12
+     * @date 2025/12/28 10:12
      */
     public function AddTaskTrigger($task_id,$staff_userid,$external_userid,$msg_time): void
     {
@@ -385,7 +385,7 @@ class MsgCheckKeywordsConsumer
      * @return void
      * @throws InvalidArgumentException
      * @author ivan
-     * @date 2024/12/28 20:43
+     * @date 2025/12/28 20:43
      */
     public function delRuleTagIdTrigger($task_id,$staff_userid,$external_userid,$tag_id){
         $key=self::TagIdTriggerCacheKey.md5("{$external_userid}_{$tag_id}_{$task_id}_{$staff_userid}");
@@ -401,7 +401,7 @@ class MsgCheckKeywordsConsumer
      * @param $tag_id
      * @return int|string
      * @author ivan
-     * @date 2024/12/28 11:59
+     * @date 2025/12/28 11:59
      */
     public function checkRuleTagIdTrigger($task_id,$staff_userid,$external_userid,$tag_id){
         //标签优先
@@ -433,7 +433,7 @@ class MsgCheckKeywordsConsumer
      * @return array
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/28 09:38
+     * @date 2025/12/28 09:38
      */
     public function getStaffCustomer($corp_id, array $staff_userid=[], array $external_userid=[]): array
     {

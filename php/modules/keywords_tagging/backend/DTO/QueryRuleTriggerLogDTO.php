@@ -15,7 +15,7 @@ use Yiisoft\Validator\ValidationContext;
 /**
  * @details 查询触发日志
  * @author ivan
- * @date 2024/12/24 10:08
+ * @date 2025/12/24 10:08
  * Class QueryRuleTriggerLogDTO
  */
 class QueryRuleTriggerLogDTO extends CommonDTO

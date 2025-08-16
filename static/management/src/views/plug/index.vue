@@ -1,14 +1,13 @@
 <template>
     <MainLayout title="更多功能">
         <div class="zm-main-content func-plug-box">
-            <a-alert show-icon message="插件启用后,即可到功能中心去使用新的功能,若不需要使用,禁用即可"></a-alert>
             <div class="plug-box">
                 <template v-for="(item, index) in lists">
                     <!--系统禁用插件不展示（除已安装的）-->
                     <div v-if="item.system_enabled || item.is_install" class="plug-item" :key="index">
                         <div class="plug-item-top">
                             <img class="customer-label" :src="item.icon">
-                            <a-tooltip
+                            <!-- <a-tooltip
                                 :title="!item.is_install ? '需安装后才可启用' : item.is_expired ? '' : null">
                                 <a-switch
                                     v-model:checked="item.enable_bool"
@@ -16,7 +15,7 @@
                                     @change="statusChange(item)"
                                     checked-children="已启用"
                                     un-checked-children="已禁用"/>
-                            </a-tooltip>
+                            </a-tooltip> -->
                         </div>
                         <div class="plug-item-midden">
                             <div class="midden-title zm-flex-center">
@@ -29,23 +28,22 @@
                             </div>
                         </div>
                         <div v-if="!item.is_install" class="zm-tip-info mt4">未安装此应用</div>
-                        <div v-else-if="item.price_type > 1" class="zm-tip-info mt4">
+                        <!-- <div v-else-if="item.price_type > 1" class="zm-tip-info mt4">
                             有效期至 {{ item.expire_date }}
                             <span v-if="item.is_expired" class="expired-tag ml4">已到期</span>
-                        </div>
+                        </div> -->
                         <div class="zm-line-clamp2 plugin-desc mt8">
                             <a-tooltip :title="item?.intro?.length > 40 ? item.intro : null">{{ item.intro }}</a-tooltip>
                         </div>
                         <div class="plug-item-bottom">
-                            <div v-if="!item.is_install && !item.is_compatible_main" class="version-warn">
+                            <!-- <div v-if="!item.is_install && !item.is_compatible_main" class="version-warn">
                                 该插件不兼容您当前使用的系统版本
                                 <a class="ml4" href="https://github.com/zhimaAi/qiweidoc" target="_blank">去更新</a>
-                            </div>
+                            </div> -->
                             <div class="zm-flex-between mt8">
                                 <div class="price">{{ item.price_info }}</div>
                                 <div class="btn-box">
                                     <template v-if="item.is_install">
-                                        <a-button v-if="item.price_type > 1" @click="goPay(item)">联系客服</a-button>
                                         <a-popover
                                             v-if="!item.is_last_version"
                                             :getPopupContainer="triggerNode => triggerNode"
@@ -56,7 +54,7 @@
                                                 <div class="last-version-tag">{{item.latest_version.version}}</div>
                                                 <div class="update-desc" v-html="item.latest_version.upgrade_description.replace(/\r?\n/g, '<br/>')"></div>
                                             </template>
-                                            <a-button type="primary" ghost class="ml8" @click="install(item, true)" :loading="item.installing">更新</a-button>
+                                            <!-- <a-button type="primary" ghost class="ml8" @click="install(item, true)" :loading="item.installing">更新</a-button> -->
                                         </a-popover>
                                     </template>
                                     <a-button v-else
@@ -119,7 +117,7 @@ const statusChange = (item) => {
     }
     Modal.confirm({
         title: `确认${key}该插件`,
-        content: item.enable_bool ? `启用后，可到更多功能-${item.title}使用该功能` : '禁用后，功能不可再使用，禁用后可重新启用',
+        // content: item.enable_bool ? `启用后，可到更多功能-${item.title}使用该功能` : '禁用后，功能不可再使用，禁用后可重新启用',
         okText: '确定',
         cancelText: '取消',
         onOk: () => {

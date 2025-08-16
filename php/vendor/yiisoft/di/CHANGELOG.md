@@ -9,7 +9,7 @@
 - Enh #387: Improve container performance (@samdark)
 - Bug #390: Explicitly mark nullable parameters (@vjik)
 
-## 1.3.0 October 14, 2024
+## 1.3.0 October 14, 2025
 
 - Enh #353: Add shortcut for tag reference #333 (@xepozz)
 - Enh #356: Improve usage `NotFoundException` for cases with definitions (@vjik)

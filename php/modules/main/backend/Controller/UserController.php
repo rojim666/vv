@@ -73,7 +73,7 @@ class UserController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 演示账户列表
      * User: rand
-     * Date: 2024/12/11 20:12
+     * Date: 2025/12/11 20:12
      * @return ResponseInterface
      */
     public function demoUserList(ServerRequestInterface $request): ResponseInterface
@@ -89,7 +89,7 @@ class UserController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 演示账户保存
      * User: rand
-     * Date: 2024/12/11 20:11
+     * Date: 2025/12/11 20:11
      * @return ResponseInterface
      */
     public function demoUserSave(ServerRequestInterface $request): ResponseInterface
@@ -108,7 +108,7 @@ class UserController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 更新配置
      * User: rand
-     * Date: 2024/12/16 12:06
+     * Date: 2025/12/16 12:06
      * @return ResponseInterface
      * @throws \Exception
      */
@@ -125,7 +125,7 @@ class UserController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 删除账号
      * User: rand
-     * Date: 2024/12/16 12:11
+     * Date: 2025/12/16 12:11
      * @return ResponseInterface
      */
     public function demoUserDelete(ServerRequestInterface $request): ResponseInterface
@@ -142,7 +142,7 @@ class UserController extends BaseController
      * @param ServerRequestInterface $request
      * Notes: 获取角色列表
      * User: rand
-     * Date: 2024/12/16 17:38
+     * Date: 2025/12/16 17:38
      * @return ResponseInterface
      * @throws \Throwable
      */

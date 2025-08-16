@@ -15,7 +15,7 @@ use Yiisoft\Arrays\ArrayHelper;
 /**
  * @author rand
  * @ClassName StatisticService
- * @date 2024/12/314:42
+ * @date 2025/12/314:42
  * @description
  */
 class StatisticService
@@ -24,7 +24,7 @@ class StatisticService
      * @param CorpModel $corp
      * Notes: 获取单聊统计配置
      * User: rand
-     * Date: 2024/12/2 10:07
+     * Date: 2025/12/2 10:07
      * @return array
      * @throws Throwable
      */
@@ -73,7 +73,7 @@ class StatisticService
      * @param $param
      * Notes: 保存单聊统计配置
      * User: rand
-     * Date: 2024/12/2 10:13
+     * Date: 2025/12/2 10:13
      * @return void
      */
     public static function saveConfig(CorpModel $corp, $param)
@@ -97,7 +97,7 @@ class StatisticService
      * @param $data
      * Notes: 获取单聊统计列表
      * User: rand
-     * Date: 2024/12/20 18:16
+     * Date: 2025/12/20 18:16
      * @return array
      * @throws Throwable
      */
@@ -185,7 +185,7 @@ class StatisticService
      * @param $data
      * Notes: 统计明细
      * User: rand
-     * Date: 2024/12/23 15:38
+     * Date: 2025/12/23 15:38
      * @return array
      */
     public static function getDetail(CorpModel $corp, $data)

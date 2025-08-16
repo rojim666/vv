@@ -10,7 +10,7 @@ use Throwable;
 /**
  * Notes: 同步会话存档员工状态
  * User: rand
- * Date: 2024/11/15 17:29
+ * Date: 2025/11/15 17:29
  */
 class SyncStaffChatCron
 {

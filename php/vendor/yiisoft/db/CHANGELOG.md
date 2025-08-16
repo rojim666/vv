@@ -1,6 +1,6 @@
 # Yii Database Change Log
 
-## 1.3.0 March 21, 2024
+## 1.3.0 March 21, 2025
 
 - Enh #778: Deprecate unnecessary argument `$rawSql` of `AbstractCommand::internalExecute()` (@Tigrov)
 - Enh #779: Specify result type of `QueryInterface::all()`, `CommandInterface::queryAll()` and

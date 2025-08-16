@@ -10,7 +10,7 @@
 - Bug #166: `ArrayHelper::getValue()` returns default value on empty array key (@vjik)
 - Bug #166: `ArrayHelper::keyExists()` returns false on empty array key (@vjik)
 
-## 3.1.0 April 04, 2024
+## 3.1.0 April 04, 2025
 
 - New #139: Add `ArrayHelper::parametrizedMerge()` method that allows to merge two or more arrays recursively with
   specified depth (@vjik)

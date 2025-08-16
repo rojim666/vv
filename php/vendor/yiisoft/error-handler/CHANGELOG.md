@@ -1,6 +1,6 @@
 # Yii Error Handler Change Log
 
-## 3.3.0 July 11, 2024
+## 3.3.0 July 11, 2025
 
 - Enh #112: Add copy cURL button, sort request headers, fix UI (@xepozz)
 - Enh #113: Simplify error log (@xepozz)
@@ -10,16 +10,16 @@
 - Bug #114: Stop `click` event on text selection (@xepozz)
 - Bug #122: Do `exit(1)` after all shutdown functions, even postponed ones (@samdark)
 
-## 3.2.1 March 07, 2024
+## 3.2.1 March 07, 2025
 
 - Enh #102: Add support for `psr/http-message` of `^2.0` version (@vjik)
 
-## 3.2.0 January 30, 2024
+## 3.2.0 January 30, 2025
 
 - New #98: Add ability to execute `getBody()` on response when `ExceptionResponder` middleware is processing (@vjik)
 - Enh #96: Trace PHP errors (@xepozz, @vjik)
 
-## 3.1.0 January 07, 2024
+## 3.1.0 January 07, 2025
 
 - New #87: Add `CompositeException` to be able to render multiple exceptions (@xepozz)
 - Chg #75: Dispatch `ApplicationError` in `ErrorCatcher` (@xepozz)

@@ -10,7 +10,7 @@ use Throwable;
 /**
  * @author rand
  * @ClassName DepartmentService
- * @date 2024/11/114:19
+ * @date 2025/11/114:19
  * @description
  */
 class DepartmentService
@@ -19,7 +19,7 @@ class DepartmentService
      * @param UserModel $currentUser
      * Notes: 获取部门列表
      * User: rand
-     * Date: 2024/11/1 18:19
+     * Date: 2025/11/1 18:19
      * @return array
      * @throws Throwable
      */
@@ -47,7 +47,7 @@ class DepartmentService
      * @param int $parentId
      * Notes: 部门列表排序
      * User: rand
-     * Date: 2024/11/5 16:58
+     * Date: 2025/11/5 16:58
      * @return array
      */
     public static function buildHierarchy(array &$departments, int $parentId = 0): array

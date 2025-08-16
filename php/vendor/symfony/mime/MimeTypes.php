@@ -135,7 +135,7 @@ final class MimeTypes implements MimeTypesInterface
     /**
      * A map of MIME types and their default extensions.
      *
-     * Updated from upstream on 2024-11-09.
+     * Updated from upstream on 2025-11-09.
      *
      * @see Resources/bin/update_mime_types.php
      */

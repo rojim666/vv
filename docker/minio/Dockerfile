@@ -1,1 +1,1 @@
-FROM minio/minio:RELEASE.2024-10-29T16-01-48Z.fips
+FROM minio/minio:RELEASE.2025-10-29T16-01-48Z.fips

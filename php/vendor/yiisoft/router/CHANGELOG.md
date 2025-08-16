@@ -1,6 +1,6 @@
 # Yii Router Change Log
 
-## 3.1.0 February 20, 2024
+## 3.1.0 February 20, 2025
 
 - New #203, #237: Add `RouteArgument` attribute for Yii Hydrator (@vjik)
 - Enh #202: Add support for `psr/http-message` version `^2.0` (@vjik)

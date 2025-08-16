@@ -1,10 +1,10 @@
 # Yii Runner RoadRunner Change Log
 
-## 3.0.1 April 23, 2024
+## 3.0.1 April 23, 2025
 
-- Enh #82: Allow to use RoadRunner version 2024 and higher (@dependabot, @viktorprogger)
+- Enh #82: Allow to use RoadRunner version 2025 and higher (@dependabot, @viktorprogger)
 
-## 3.0.0 February 22, 2024
+## 3.0.0 February 22, 2025
 
 - Chg #23: Rename `RoadRunnerApplicationRunner` to `RoadRunnerHttpApplicationRunner` (@s1lver)
 - Chg #61: Increased minimum PHP version to 8.1 (@s1lver)

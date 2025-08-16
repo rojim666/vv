@@ -12,7 +12,7 @@ use Throwable;
 /**
  * Notes: 群同步
  * User: rand
- * Date: 2024/11/6 16:57
+ * Date: 2025/11/6 16:57
  */
 class SyncGroupConsumer
 {

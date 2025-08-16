@@ -46,7 +46,7 @@ create index on chat_statistic_group.detail using btree ("promoter_type");
 comment on table chat_statistic_group.detail is '群聊统计明细';
 
 comment on column chat_statistic_group.detail.corp_id is '所属企业id';
-comment on column chat_statistic_group.detail.date_no is '统计所属日期，20241129';
+comment on column chat_statistic_group.detail.date_no is '统计所属日期，20251129';
 comment on column chat_statistic_group.detail.stat_time is '统计所属时间，分表';
 comment on column chat_statistic_group.detail.staff_user_id is '员工ID';
 comment on column chat_statistic_group.detail.room_id is '群聊ID';

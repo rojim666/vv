@@ -8,7 +8,7 @@
 - Enh #66: Mark readonly properties (@vjik)
 - Bug #67: Explicitly mark nullable parameters (@vjik)
  
-## 1.0.2 March 18, 2024
+## 1.0.2 March 18, 2025
 
 - Enh #53: Add more specific psalm type for result of `Random::string()` method (@vjik)
 - Bug #35: Add missed `ext-hash` and `ext-openssl` dependencies (@vjik)

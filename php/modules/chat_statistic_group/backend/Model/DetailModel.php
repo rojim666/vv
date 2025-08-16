@@ -8,7 +8,7 @@ use Common\DB\BaseModel;
 /**
  * @author rand
  * @ClassName DetailModel
- * @date 2024/12/1911:53
+ * @date 2025/12/1911:53
  * @description
  */
 class DetailModel extends BaseModel

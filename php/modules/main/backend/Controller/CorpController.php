@@ -70,7 +70,7 @@ class CorpController extends BaseController
     /**
      * Notes: 获取会话存档密钥
      * User: rand
-     * Date: 2024/11/1 10:27
+     * Date: 2025/11/1 10:27
      * @return DataResponse
      */
     public function getSessionPublicKey(ServerRequestInterface $request): ResponseInterface
@@ -84,7 +84,7 @@ class CorpController extends BaseController
     /**
      * Notes: 初始化时保存会话存档配置
      * User: rand
-     * Date: 2024/10/31 12:06
+     * Date: 2025/10/31 12:06
      * @return ResponseInterface
      * @throws Throwable
      */

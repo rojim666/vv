@@ -779,7 +779,7 @@ SQL;
      * @param $data
      * Notes: 会话搜索
      * User: rand
-     * Date: 2024/11/11 12:06
+     * Date: 2025/11/11 12:06
      * @return array
      * @throws Throwable
      */
@@ -1023,7 +1023,7 @@ SQL;
      * @param CorpModel $corp
      * Notes: 获取会话存档展示配置
      * User: rand
-     * Date: 2024/12/10 16:50
+     * Date: 2025/12/10 16:50
      * @return array
      * @throws Throwable
      */
@@ -1037,7 +1037,7 @@ SQL;
      * @param $data
      * Notes: 保存会话存档展示配置
      * User: rand
-     * Date: 2024/12/10 16:54
+     * Date: 2025/12/10 16:54
      * @return int
      * @throws Throwable
      */

@@ -24,7 +24,7 @@ RUN git clone --depth 1 --branch v0.5.4 https://github.com/ChenHuajun/pg_roaring
 
 # 编译安装pg_bigm插件
 WORKDIR /tmp/
-RUN git clone --depth 1 --branch v1.2-20240606 https://github.com/pgbigm/pg_bigm.git && \
+RUN git clone --depth 1 --branch v1.2-20250606 https://github.com/pgbigm/pg_bigm.git && \
     cd /tmp/pg_bigm && \
     make USE_PGXS=1 PG_CONFIG=/usr/bin/pg_config && \
     make USE_PGXS=1 PG_CONFIG=/usr/bin/pg_config install

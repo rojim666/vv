@@ -25,7 +25,7 @@ use Yiisoft\Db\Exception\InvalidConfigException;
 /**
  * @details 关键词打标签 服务
  * @author ivan
- * @date 2024/12/23 14:45
+ * @date 2025/12/23 14:45
  * Class TaskService
  */
 class TaskService
@@ -39,7 +39,7 @@ class TaskService
      * @return array
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 14:45
+     * @date 2025/12/23 14:45
      */
     public static function list(CorpModel $corp, $data): array
     {
@@ -63,7 +63,7 @@ class TaskService
      * @return bool
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 14:44
+     * @date 2025/12/23 14:44
      */
     public static function delete(CorpModel $corp,UpMarkTagTaskSwitchDTO $upDto): void
     {
@@ -84,7 +84,7 @@ class TaskService
      * @return bool
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 14:44
+     * @date 2025/12/23 14:44
      */
     public static function save(CorpModel $corp, MarkTagTaskDTO $taskDTO): bool
     {
@@ -144,7 +144,7 @@ class TaskService
      * @return array
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 15:19
+     * @date 2025/12/23 15:19
      */
     public static function getTaskInfo(CorpModel $corp,UpMarkTagTaskSwitchDTO $data): array
     {
@@ -172,7 +172,7 @@ class TaskService
      * @throws InvalidConfigException
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/23 19:06
+     * @date 2025/12/23 19:06
      */
     public static function getStatistics(CorpModel $corp,$search = []): array
     {
@@ -185,7 +185,7 @@ class TaskService
      * @param $data
      * Notes: 变更规则启用状态
      * User: rand
-     * Date: 2024/12/6 15:11
+     * Date: 2025/12/6 15:11
      * @return void
      * @throws Throwable
      */
@@ -283,7 +283,7 @@ class TaskService
      * @throws Exception
      * @throws InvalidConfigException
      * @author ivan
-     * @date 2024/12/23 18:04
+     * @date 2025/12/23 18:04
      */
     public static function FormatTask(array|ModelCollection $taskList,  CorpModel $corp): array|ModelCollection
     {
@@ -378,7 +378,7 @@ class TaskService
      * @return array
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/24 10:51
+     * @date 2025/12/24 10:51
      */
     public static function getRuleTriggerLogList(CorpModel $corp, QueryRuleTriggerLogDTO $search)
     {
@@ -424,7 +424,7 @@ class TaskService
      * @return mixed
      * @throws Throwable
      * @author ivan
-     * @date 2024/12/24 10:50
+     * @date 2025/12/24 10:50
      */
     public static function FormatRuleTriggerLog($logList, CorpModel $corp): mixed
     {

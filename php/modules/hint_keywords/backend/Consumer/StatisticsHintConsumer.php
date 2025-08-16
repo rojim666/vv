@@ -26,7 +26,7 @@ use Zxing\QrReader;
 /**
  * @author rand
  * @ClassName StatisticsHintConsumer
- * @date 2024/12/611:26
+ * @date 2025/12/611:26
  * @description
  */
 class StatisticsHintConsumer
@@ -159,7 +159,7 @@ class StatisticsHintConsumer
     /**
      * Notes: 统计
      * User: rand
-     * Date: 2024/12/10 10:45
+     * Date: 2025/12/10 10:45
      * @return void
      * @throws \Throwable
      * @throws \Yiisoft\Db\Exception\Exception
@@ -263,7 +263,7 @@ SQL;
      * @param  $rule
      * Notes: 验证消息是否匹配到敏感词规则
      * User: rand
-     * Date: 2024/12/6 15:00
+     * Date: 2025/12/6 15:00
      * @return bool
      */
     public function checkMsg($msg, $rule): bool
@@ -392,7 +392,7 @@ SQL;
      * @param $string
      * Notes: 验证是否存在链接
      * User: rand
-     * Date: 2024/12/6 17:20
+     * Date: 2025/12/6 17:20
      * @return bool
      */
     function containsLink($string): bool
@@ -407,7 +407,7 @@ SQL;
      * @param $msgInfo
      * Notes: 推送消息通知
      * User: rand
-     * Date: 2024/12/6 17:55
+     * Date: 2025/12/6 17:55
      * @return void
      */
     public function notice($noticeInfo, $msgInfo)
@@ -545,7 +545,7 @@ SQL;
      * @param $msg
      * Notes: 推送应用消息
      * User: rand
-     * Date: 2024/12/6 18:45
+     * Date: 2025/12/6 18:45
      * @return void
      * @throws \Throwable
      */
@@ -567,7 +567,7 @@ SQL;
      * @param $msg
      * Notes: 企微群消息推送
      * User: rand
-     * Date: 2024/12/6 18:17
+     * Date: 2025/12/6 18:17
      * @return void
      * @throws \Throwable
      */
@@ -598,7 +598,7 @@ SQL;
      * @param $msg
      * Notes: 钉钉群推送
      * User: rand
-     * Date: 2024/12/6 18:00
+     * Date: 2025/12/6 18:00
      * @return void
      */
     function noticeDingTalk($config, $msg)

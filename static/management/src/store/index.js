@@ -140,13 +140,13 @@ export default createStore({
                     }
                     switch (Number(item.price_type)) {
                         case 1:
-                            item.price_info = '免费'
+                            item.price_info = ''
                             break
                         case 2:
-                            item.price_info = `¥${item.price_value}/年`
+                            item.price_info = ''
                             break
                         case 3:
-                            item.price_info = item.price_value.substring(0, 12)
+                            item.price_info = ''
                             break
                     }
                     if (find) {
@@ -157,7 +157,7 @@ export default createStore({
                         // 本地版本
                         item.local_version = find.version
                         // 是否最新版本
-                        item.is_last_version = (item.local_version === item?.latest_version?.version)
+                    
                         // 本地版本是否兼容当前main模块（目前不存在此情况）
                         if (find?.compatible_main_version_list) {
                             item.local_is_compatible_main = find.compatible_main_version_list.includes(mainVersion)

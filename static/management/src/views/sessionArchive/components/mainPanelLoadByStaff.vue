@@ -6,9 +6,9 @@
                 <template #message>
                     可设置{{archiveStfTotal}}/{{archiveStfSettings.max_staff_num}}个存档员工
                     <a class="ml8" @click="showSetStaffModal">设置</a>
-                    <template v-if="!archiveStfModule.is_install">
+                    <!-- <template v-if="!archiveStfModule.is_install">
                         ，如需设置更多，需购买存档员工管理插件<a class="ml8" @click="linkPlugHome">去购买</a>
-                    </template>
+                    </template> -->
                 </template>
             </a-alert>
         </div>
