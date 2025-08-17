@@ -58,11 +58,7 @@
                                             <!-- <a-button type="primary" ghost class="ml8" @click="install(item, true)" :loading="item.installing">更新</a-button> -->
                                         </a-popover>
                                     </template>
-                                    <a-button v-else
-                                              @click="install(item)"
-                                              :loading="item.installing"
-                                              :disabled="!item.is_compatible_main">
-                                    </a-button>
+                                    <!-- 删除了不完整的 a-button 代码 -->
                                 </div>
                             </div>
                         </div>

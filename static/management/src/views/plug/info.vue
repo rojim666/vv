@@ -17,11 +17,12 @@
                                 <div class="top-enable-label">已启用</div>
                             </div>
                             <div class="top-enable not-status-box" v-else>
-                                <div v-else class="top-enable-box">
+                                <div class="top-enable-box">
                                     <img class="enable-img" src="../../assets/svg/not-enable.svg" alt="">
                                     <div class="top-enable-label">待启用</div>
                                 </div>
-                                <!-- 删除版本警告红色文字 -->
+                            </div>
+                            <!-- 删除版本警告红色文字 -->
                             </div>
                             <div v-if="!detailData.is_install && !detailData.is_compatible_main" class="version-warn">
                                 该插件不兼容您当前使用的系统版本

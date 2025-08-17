@@ -17,10 +17,5 @@ export default [
         name: "plugManagementRender",
         component: () => import("../views/plug/render.vue"),
     },
-    {
-        path: "/plug/shopping",
-        name: "plugShopping",
-        component: () => import("../views/plug/shopping.vue"),
-    },
 ]
 
