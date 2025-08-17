@@ -17,8 +17,11 @@
                                 <div class="top-enable-label">已启用</div>
                             </div>
                             <div class="top-enable not-status-box" v-else>
-                                <img class="enable-img" src="../../assets/svg/not-enable.svg" alt="">
-                                <div class="top-enable-label">待启用</div>
+                                <div v-else class="top-enable-box">
+                                    <img class="enable-img" src="../../assets/svg/not-enable.svg" alt="">
+                                    <div class="top-enable-label">待启用</div>
+                                </div>
+                                <!-- 删除版本警告红色文字 -->
                             </div>
                             <div v-if="!detailData.is_install && !detailData.is_compatible_main" class="version-warn">
                                 该插件不兼容您当前使用的系统版本
@@ -37,7 +40,7 @@
                                     </a-button>
                                 </a-tooltip> -->
                                 <!-- <a-button v-else @click="statusChange(false)">禁 用</a-button> -->
-                               <!--<a-button v-if="detailData.price_type > 1" @click="goPay">联系客服</a-button>**/-->
+                               <!-- 删除这行联系客服按钮的注释代码 -->
                                 <a-popover
                                     v-if="!detailData.is_last_version"
                                     :getPopupContainer="triggerNode => triggerNode"
@@ -53,6 +56,7 @@
                             </template>
                             <template v-else>
                                 <div class="price">{{ detailData.price_info }}</div>
+                                <!-- 删除价格信息红色文字 -->
                                 <!--<a-button @click="install" :loading="installing">
                                     {{ detailData.price_type > 1 ? '安装试用7天' : '安 装' }}
                                 </a-button>-->
@@ -566,3 +570,16 @@ const goPay = () => {
     object-fit: cover;
 }
 </style>
+
+/* 删除红色文字相关的CSS样式 */
+.price {
+    /* 删除整个price样式 */
+}
+
+.version-warn {
+    /* 删除整个version-warn样式 */
+}
+
+.expired-tag {
+    /* 删除整个expired-tag样式 */
+}

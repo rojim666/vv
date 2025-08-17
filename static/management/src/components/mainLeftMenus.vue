@@ -9,7 +9,7 @@
                 :theme="state.theme"
                 :inlineCollapsed="sidebarCollapsed"
             >
-                <template v-for="menu in menus">
+                <template v-for="menu in menus" :key="menu.key">
                     <a-sub-menu
                         v-if="menu.subs?.length > 0"
                         :key="menu.key"
@@ -184,7 +184,7 @@ onMounted(() => {
                 },
             ]
             break
-        case 2:
+        case 3:
             // 2级权限用户 - 可以访问更多功能，但不能访问系统设置
             menus.value = [
                 {
@@ -215,7 +215,7 @@ onMounted(() => {
                 }
             ]
             break
-        case 3:
+        case 2:
             // 3级权限用户 - 可以访问更多功能，但不能访问系统设置
             menus.value = [
                 {
@@ -243,7 +243,16 @@ onMounted(() => {
                         {key: 'customerManagementHome', title: '客户管理', route: '/customerManagement/index'},
                         {key: 'customerManagementTag', title: '客户标签', route: '/customerManagement/tag'}
                     ]
-                }
+                },
+                {
+                    key: 'companyManagement',
+                    title: '企业管理',
+                    icon: h(AppstoreOutlined),
+                    subs: [
+                        {key: 'companyManagementStaff', title: '员工管理', route: '/companyManagement/staff'},
+                        {key: 'groupManagementHome', title: '群管理', route: '/groupManagement/index'},
+                    ]
+                },
             ]
             break
         case 4:

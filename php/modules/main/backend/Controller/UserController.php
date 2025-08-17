@@ -115,6 +115,15 @@ class UserController extends BaseController
     public function demoUserChangeLogin(ServerRequestInterface $request): ResponseInterface
     {
         $corp = $request->getAttribute(CorpModel::class);
+        $currentUserInfo = $request->getAttribute(Authentication::class);
+        
+        // 只有管理员才能修改员工登录权限
+        if ($currentUserInfo->get("role_id") != EnumUserRoleType::MANAGER->value) {
+            return $this->jsonResponse([
+                'code' => 403,
+                'message' => '权限不足，只有管理员才能修改员工登录权限'
+            ], 403);
+        }
 
         UserService::demoUserChangeLogin($corp, $request->getParsedBody());
 

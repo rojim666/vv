@@ -63,10 +63,10 @@
                 </template>
                 <a-form-item label="账号角色">
                     <a-select v-model:value="storeModal.formState.role_id" placeholder="请选择账号角色">
-                        <a-select-option :value="1">员工</a-select-option>
+                        <a-select-option :value="1">文案主管</a-select-option>
                         <a-select-option :value="2">沟通员</a-select-option>
                         <a-select-option :value="3">管理员</a-select-option>
-                        <a-select-option :value="4">游客</a-select-option>
+                        <a-select-option :value="4">文案营销专员</a-select-option>
                     </a-select>
                 </a-form-item>
                 <a-form-item label="过期时间">
@@ -111,37 +111,50 @@ const loading = ref(false)
 const inputAccount = ref(false)
 const inputPassword = ref(false)
 const list = ref([])
-const columns = [
-    {
-        title: '账号',
-        dataIndex: 'account'
-    },
-    {
-        title: '备注',
-        dataIndex: 'description'
-    },
-    {
-        title: '状态',
-        dataIndex: 'exp_status_text'
-    },
-    {
-        title: '角色',
-        dataIndex: 'role_name'
-    },
-    {
-        title: '登录',
-        dataIndex: 'login_perm'
-    },
-    {
-        title: '过期时间',
-        dataIndex: 'exp_time_text'
-    },
-    {
-        title: '操作',
-        dataIndex: 'operate',
-        width: 120
-    },
-]
+const columns = computed(() => {
+    const baseColumns = [
+        {
+            title: '账号',
+            dataIndex: 'account'
+        },
+        {
+            title: '备注',
+            dataIndex: 'description'
+        },
+        {
+            title: '状态',
+            dataIndex: 'exp_status_text'
+        },
+        {
+            title: '角色',
+            dataIndex: 'role_name'
+        },
+        {
+            title: '登录',
+            dataIndex: 'login_perm',
+            key: 'login_perm',
+            width: 100,
+            customRender: ({ record }) => {
+                return h('div', {
+                    style: {
+                        opacity: isManager.value ? 1 : 0.5,
+                        cursor: isManager.value ? 'pointer' : 'not-allowed'
+                    }
+                })
+            }
+        },
+        {
+            title: '过期时间',
+            dataIndex: 'exp_time_text'
+        },
+        {
+            title: '操作',
+            dataIndex: 'operate',
+            width: 120
+        },
+    ]
+    return baseColumns
+})
 const pagination = reactive({
     current: 1,
     pageSize: 10,
@@ -170,6 +183,44 @@ const userInfo = computed(() => {
     return store.getters.getUserInfo
 })
 
+// 判断是否为管理员
+const isManager = computed(() => {
+    return userInfo.value?.role_id === 3 // MANAGER = 3
+})
+
+// 修改登录权限函数
+const loginPermChange = record => {
+    // 检查是否为管理员
+    if (!isManager.value) {
+        message.error('权限不足，只有管理员才能修改员工登录权限')
+        return
+    }
+    
+    let status = record.login_perm ? '开启' : '关闭'
+    const cancel = () => {
+        record.login_perm = !record.login_perm
+    }
+    Modal.confirm({
+        title: '提示',
+        content: `确认${status}该员工登录权限？`,
+        onOk: () => {
+            permLoginAccount({
+                id: record.id,
+                can_login: Number(record.login_perm)
+            }).then(() => {
+                message.success(`已${status}`)
+            }).catch((error) => {
+                if (error.response?.status === 403) {
+                    message.error('权限不足，只有管理员才能修改员工登录权限')
+                }
+                cancel()
+            })
+        },
+        onCancel: () => {
+            cancel()
+        }
+    })
+}
 const administrator = [2, 3]
 
 onMounted(() => {
@@ -207,30 +258,6 @@ function loadData() {
         pagination.total = Number(res.data.total)
     }).finally(() => {
         loading.value = false
-    })
-}
-
-function loginPermChange(record) {
-    let status = record.login_perm ? '开启' : '关闭'
-    const cancel = () => {
-        record.login_perm = !record.login_perm
-    }
-    Modal.confirm({
-        title: '提示',
-        content: `确认${status}该账号登录权限？`,
-        onOk: () => {
-            permLoginAccount({
-                id: record.id,
-                can_login: Number(record.login_perm)
-            }).then(() => {
-                message.success(`已${status}`)
-            }).catch(() => {
-                cancel()
-            })
-        },
-        onCancel: () => {
-            cancel()
-        }
     })
 }
 

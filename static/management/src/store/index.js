@@ -134,10 +134,11 @@ export default createStore({
                     item.compatible_main_version_list = jsonDecode(item?.latest_version?.compatible_main_version_list, [])
                     // 最新版本是否兼容当前main模块
                     item.is_compatible_main =  checkVersionCompatible(mainVersion, item.compatible_main_version_list)
-                    if (item?.expire_time > 0) {
-                        item.is_expired = (item.expire_time < nowTime)
-                        item.expire_date = dayjs(item.expire_time * 1000).format('YYYY-MM-DD HH:mm')
-                    }
+                    // 删除以下有效期相关代码：
+                    // if (item?.expire_time > 0) {
+                    //     item.is_expired = (item.expire_time < nowTime)
+                    //     item.expire_date = dayjs(item.expire_time * 1000).format('YYYY-MM-DD HH:mm')
+                    // }
                     switch (Number(item.price_type)) {
                         case 1:
                             item.price_info = ''

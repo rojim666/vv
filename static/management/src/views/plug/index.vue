@@ -30,7 +30,8 @@
                         <div v-if="!item.is_install" class="zm-tip-info mt4">未安装此应用</div>
                         <!-- <div v-else-if="item.price_type > 1" class="zm-tip-info mt4">
                             有效期至 {{ item.expire_date }}
-                            <span v-if="item.is_expired" class="expired-tag ml4">已到期</span>
+                            <!-- 删除过期标签 -->
+                            <!-- <div v-if="item.is_expired" class="expired-tag">已到期</div> -->
                         </div> -->
                         <div class="zm-line-clamp2 plugin-desc mt8">
                             <a-tooltip :title="item?.intro?.length > 40 ? item.intro : null">{{ item.intro }}</a-tooltip>
@@ -365,8 +366,10 @@ const goPay = item => {
     margin-top: 8px;
 }
 
-.expired-tag {
+/* 删除过期标签样式 */
+/* .expired-tag {
     color: #fa541c;
-    font-weight: 600;
-}
+    font-size: 12px;
+    margin-left: 8px;
+} */
 </style>

@@ -217,7 +217,7 @@ class Routes extends RouterProvider
                     Route::put("/users/current")->action([UserController::class, "updateCurrentUserInfo"])->defaults(["permission_key" => 'main.user_config.edit']),
                     Route::get("/demo/users/list")->action([UserController::class, "demoUserList"]),
                     Route::post("/demo/users/save")->action([UserController::class, "demoUserSave"]),
-                    Route::post("/demo/users/change")->action([UserController::class, "demoUserChangeLogin"]),
+                    Route::post("/demo/users/change")->action([UserController::class, "demoUserChangeLogin"])->defaults(["permission_key" => 'main.user_login_perm.edit']),
                     Route::post("/demo/users/delete")->action([UserController::class, "demoUserDelete"]),
                     Route::get("/users/role/list")->action([UserController::class, "userRoleList"]),
 

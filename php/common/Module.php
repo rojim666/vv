@@ -95,7 +95,14 @@ class Module
         $uri = '/wkOperation/open-module/list';
         $query = ['size' => 100, 'corp_id' => $corpId];
         $response = (new HttpClient(['base_uri' => $host]))->get($uri, $query);
-        return json_decode($response->getBody(), true)['data']['list'] ?? [];
+        $data = json_decode($response->getBody(), true)['data']['list'] ?? [];
+        
+        // 删除有效期字段
+        foreach ($data as &$item) {
+            unset($item['expire_time']);
+        }
+        
+        return $data;
     }
 
     public static function getRemoteModuleDetail(string $moduleName, string $corpId)
@@ -104,7 +111,12 @@ class Module
         $uri = '/wkOperation/open-module/detail';
         $query = ['name' => $moduleName, 'corp_id' => $corpId];
         $response = (new HttpClient(['base_uri' => $host]))->get($uri, $query);
-        return json_decode($response->getBody(), true)['data'] ?? [];
+        $data = json_decode($response->getBody(), true)['data'] ?? [];
+        
+        // 删除有效期字段
+        unset($data['expire_time']);
+        
+        return $data;
     }
 
     public static function getRemoteLatestModuleVersion(string $moduleName, string $corpId)
@@ -163,4 +175,77 @@ class Module
         ];
         Yii::getRpcClient()->call('common.CronCollectModule', $data);
     }
+
+
+    // 在 Module.php 中添加或修改这些方法
+
+/**
+ * 获取所有远程模块配置列表（本地化版本）
+ */
+public static function getAllRemoteModuleConfigListLocal(string $corpId)
+{
+    // 不调用远程API，直接返回本地模块作为远程模块
+    $localModules = self::getAllLocalModuleConfigList();
+    $result = [];
+    
+    foreach ($localModules as $module) {
+        if (($module['name'] ?? '') != 'main') {
+            // 移除有效期字段
+            unset($module['expire_time']);
+            unset($module['is_expired']);
+            
+            // 设置默认值
+            $module['enabled'] = 1;
+            $module['price_type'] = 1;
+            $module['order'] = 0;
+            
+            $result[] = $module;
+        }
+    }
+    
+    return $result;
 }
+
+/**
+ * 获取远程模块详情（本地化版本）
+ */
+public static function getRemoteModuleDetailLocal(string $moduleName, string $corpId)
+{
+    // 不调用远程API，直接返回本地模块信息
+    $localModule = self::getLocalModuleConfig($moduleName);
+    
+    if (!empty($localModule)) {
+        // 移除有效期字段
+        unset($localModule['expire_time']);
+        unset($localModule['is_expired']);
+        
+        // 设置默认值
+        $localModule['enabled'] = 1;
+        $localModule['price_type'] = 1;
+    }
+    
+    return $localModule;
+}
+
+/**
+ * 禁用模块浏览记录收集
+ */
+public static function collectModuleView(string $moduleName, string $corpId): void
+{
+    // 不执行任何操作，避免向远程报告
+    // 参数保留以维持接口兼容性
+    return;
+}
+
+/**
+ * 禁用远程使用记录报告
+ */
+public static function addTryRecordInRemote(string $moduleName, string $corpId): void
+{
+    // 不执行任何操作，避免向远程报告
+    // 参数保留以维持接口兼容性
+    return;
+}
+
+}
+

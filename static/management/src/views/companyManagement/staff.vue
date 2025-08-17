@@ -99,13 +99,12 @@
                     <a-select
                         v-model:value="roleModal.role"
                         placeholder="请选择角色">
-                        <template v-for="role in roles">
-                            <a-select-option
-                                v-if="!['文案营销专员', '管理者'].includes(role.role_name)"
-                                :key="role.id">
-                                {{ role.role_name }}
-                            </a-select-option>
-                        </template>
+                        <a-select-option
+                            v-for="role in roles"
+                            :key="role.id"
+                            :value="role.id">
+                            {{ role.role_name }}
+                        </a-select-option>
                     </a-select>
                 </a-form-item>
             </a-form>
